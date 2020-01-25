@@ -5,6 +5,7 @@ import Work from "./Work";
 import Project from "./Project";
 import Language from "./Language";
 import Skills from "./Skills";
+import Success from "./Success";
 
 class MainForm extends Component {
   constructor(props) {
@@ -205,6 +206,15 @@ class MainForm extends Component {
             state={this.state.inputFields4}
           />
         );
+      case 7:
+        return (
+          <Success
+            nextStep={this.nextStep}
+            prevStep={this.prevStep}
+            values={values}
+          />
+        );
+
       default:
         return null;
     }
