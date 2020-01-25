@@ -1,0 +1,25 @@
+/* About Page Css */
+.resume_container {
+  padding-left: 30px;
+  padding-right: 30px;
+  margin: 0 auto;
+  max-width: 700px;
+  /* position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-30%, -30%); */
+}
+
+.file {
+  position: relative;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.file-1 {
+  position: absolute;
+  font-size: 40px;
+  opacity: 0;
+  right: 0;
+  top: 0;
+}
