@@ -1,3 +1,9 @@
+@font-face {
+  font-family: "Roboto";
+  src: url("https://fonts.googleapis.com/css?family=Roboto:300,900&display=swap")
+    format("truetype");
+}
+
 /* About Page Css */
 .resume_container {
   padding-left: 30px;
@@ -22,4 +28,164 @@
   opacity: 0;
   right: 0;
   top: 0;
+}
+
+/* A4 Size pApaer Css */
+/* body {
+  background: rgb(204, 204, 204);
+} */
+
+.top_head {
+  padding-left: 10px;
+  padding-top: 15px;
+}
+
+.A4 {
+  background: rgb(204, 204, 204);
+  padding-left: 10px;
+  padding-right: 10px;
+}
+@media only screen and (max-width: 500px) {
+  .A4 {
+    background: rgb(204, 204, 204);
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@page {
+  size: A4;
+}
+@media print {
+  html,
+  body {
+    width: 210mm;
+    height: 297mm;
+  }
+  .page {
+    margin: 0;
+    border: initial;
+    border-radius: initial;
+    width: initial;
+    min-height: initial;
+    box-shadow: initial;
+    background: initial;
+    page-break-after: always;
+  }
+}
+
+.heading {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 40px;
+}
+.subheading {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 15.5px;
+  /* text-align: justify; */
+  line-height: 20px;
+}
+.basic_information {
+  background-color: aliceblue;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  padding-top: 15px;
+  padding-left: 40px;
+  padding-right: 40px;
+  margin-top: 15px;
+}
+
+.main_section {
+  padding-left: 40px;
+  padding-right: 40px;
+  margin-top: 15px;
+}
+.education {
+  color: rgb(66, 66, 204);
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-size: 32px;
+  letter-spacing: 2px;
+}
+.name_section {
+  color: black;
+  font-family: "Roboto", sans-serif;
+  font-weight: bolder;
+  font-size: 23px;
+  letter-spacing: 0.5px;
+}
+.degree_major {
+  color: black;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 23px;
+  letter-spacing: 0.5px;
+}
+.from_to {
+  font-family: "Roboto", sans-serif;
+  color: gray;
+  font-style: italic;
+
+  margin-top: -10px;
+}
+
+.about_project1 {
+  font-family: "Roboto", sans-serif;
+
+  color: gray;
+  font-size: 13.5px;
+  margin-top: -10px;
+}
+
+.about_project {
+  font-family: "Roboto", sans-serif;
+  color: gray;
+  font-size: 13.5px;
+  margin-top: -10px;
+}
+.project_head {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+}
+.bte {
+  padding-left: 15px;
+}
+
+.bttn {
+  background-color: rgb(66, 66, 204);
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  font-size: 19px;
+  height: 33px;
+  line-height: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+.bttn:hover {
+  background-color: rgb(66, 66, 204);
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  font-size: 19px;
+  height: 33px;
+  line-height: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.language {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+}
+.language_level {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  opacity: 0.8;
+}
+.faa {
+  color: rgb(66, 66, 204);
 }

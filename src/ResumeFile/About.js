@@ -8,7 +8,7 @@ class About extends Component {
   render() {
     const { values } = this.props;
     return (
-      <div className="resume_container">
+      <div className="resume_container" style={{ paddingBottom: "30px" }}>
         <h1>Personal Details </h1>
 
         <form>
@@ -17,10 +17,10 @@ class About extends Component {
               src={
                 values.file
                   ? `${values.file}`
-                  : "https://th.jobsdb.com/en-th/cms/employer/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png"
+                  : "https://greenpathcr.com/wp-content/uploads/2019/09/user_circle_1048392.png"
               }
               alt="Profile"
-              style={{ borderRadius: "50%", height: "80px", width: "80px" }}
+              style={{ borderRadius: "50%", height: "100px", width: "100px" }}
             />
             <input
               type="file"
