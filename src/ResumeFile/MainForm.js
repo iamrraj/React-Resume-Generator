@@ -6,13 +6,16 @@ import Project from "./Project";
 import Language from "./Language";
 import Skills from "./Skills";
 import Success from "./Success";
+import axios from "axios";
+import Swal from "sweetalert2";
 
+let authToken = localStorage.getItem("Token");
 class MainForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       step: 1,
-      file: null,
+      photo: null,
       name: "",
       location: "",
       github: "",
@@ -22,33 +25,28 @@ class MainForm extends Component {
       web: "",
       skype: "",
       about: "",
-      education: "",
-      work: "",
-      project: "",
-      language: "",
-      skill: "",
-      inputFields4: [
+      skills: [
         {
-          skills: ""
+          skilss: ""
         }
       ],
-      inputFields3: [
+      languages: [
         {
           language: "",
           level: ""
         }
       ],
-      inputFields2: [
+      projects: [
         {
           title: "",
-          aproject: "",
+          projectdetails: "",
           link: ""
         }
       ],
-      inputFields1: [
+      works: [
         {
           postion: "",
-          type: "",
+          employe: "",
           startdate: "",
           cname: "",
           wlocation: "",
@@ -56,12 +54,12 @@ class MainForm extends Component {
           description: ""
         }
       ],
-      inputFields: [
+      educations: [
         {
           university: "",
-          subject: "",
-          from: "",
-          to: "",
+          majorsubject: "",
+          startyear: "",
+          endyear: "",
           grade: "",
           total: "",
           ulocation: "",
@@ -69,6 +67,7 @@ class MainForm extends Component {
         }
       ]
     };
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   nextStep = () => {
@@ -94,15 +93,120 @@ class MainForm extends Component {
 
   ImageChange(event) {
     this.setState({
-      file: URL.createObjectURL(event.target.files[0])
+      photo: URL.createObjectURL(event.target.files[0])
     });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const data = {
+      photo: this.state.photo,
+      name: this.state.name,
+      location: this.state.location,
+      github: this.state.github,
+      linkedin: this.state.linkedin,
+      email: this.state.email,
+      phone: this.state.phone,
+      web: this.state.web,
+      skype: this.state.skype,
+      about: this.state.about,
+      skills: [...this.state.skills],
+      languages: [...this.state.languages],
+      projects: [...this.state.projects],
+      works: [...this.state.works],
+      educations: [...this.state.educations]
+    };
+
+    axios({
+      method: "post",
+      url: `https://softbike.herokuapp.com/api/1/data/resume/`,
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        // "Content-type": "multipart/form-data",
+        Authorization: "Bearer " + authToken
+      },
+      data
+    })
+      .then(res => {
+        this.setState({
+          photo: null,
+          name: "",
+          location: "",
+          github: "",
+          linkedin: "",
+          email: "",
+          phone: "",
+          web: "",
+          skype: "",
+          about: "",
+          skills: [
+            {
+              skilss: ""
+            }
+          ],
+          languages: [
+            {
+              language: "",
+              level: ""
+            }
+          ],
+          projects: [
+            {
+              title: "",
+              projectdetails: ".",
+              link: ""
+            }
+          ],
+          works: [
+            {
+              postion: "",
+              employe: "",
+              startdate: null,
+              cname: "",
+              wlocation: "",
+              enddate: null,
+              description: ""
+            }
+          ],
+          educations: [
+            {
+              university: "",
+              majorsubject: "",
+              startyear: null,
+              endyear: null,
+              grade: "",
+              total: "",
+              ulocation: "",
+              degree: ""
+            }
+          ]
+        });
+        this.props.history.push("/driversetting/");
+        Swal.fire({
+          title: "Resume Added",
+          type: "success",
+          text: "Resume added successfully !!",
+          showConfirmButton: false,
+          timer: 2000
+        });
+      })
+      .catch(err => {
+        console.log(err);
+        Swal.fire({
+          title: "Resume Added Error",
+          type: "error",
+          text: "Error while Creating new Resume!",
+          timer: 2000
+        });
+      });
   }
 
   render() {
     const { step } = this.state;
 
     const {
-      file,
+      photo,
       name,
       location,
       github,
@@ -112,19 +216,14 @@ class MainForm extends Component {
       web,
       skype,
       about,
-      education,
-      inputFields,
-      inputFields1,
-      inputFields2,
-      inputFields3,
-      inputFields4,
-      language,
-      skill,
-      work,
-      project
+      educations,
+      works,
+      projects,
+      languages,
+      skills
     } = this.state;
     const values = {
-      file,
+      photo,
       name,
       location,
       github,
@@ -134,16 +233,11 @@ class MainForm extends Component {
       web,
       skype,
       about,
-      education,
-      inputFields,
-      inputFields1,
-      inputFields2,
-      inputFields3,
-      inputFields4,
-      language,
-      skill,
-      work,
-      project
+      educations,
+      works,
+      projects,
+      languages,
+      skills
     };
     switch (step) {
       case 1:
@@ -162,7 +256,7 @@ class MainForm extends Component {
             prevStep={this.prevStep}
             handleChange={this.change.bind(this)}
             values={values}
-            state={this.state.inputFields}
+            state={this.state.educations}
           />
         );
       case 3:
@@ -172,7 +266,7 @@ class MainForm extends Component {
             prevStep={this.prevStep}
             handleChange={this.change.bind(this)}
             values={values}
-            state={this.state.inputFields1}
+            state={this.state.works}
           />
         );
       case 4:
@@ -182,7 +276,7 @@ class MainForm extends Component {
             prevStep={this.prevStep}
             handleChange={this.change.bind(this)}
             values={values}
-            state={this.state.inputFields2}
+            state={this.state.projects}
           />
         );
       case 5:
@@ -192,7 +286,7 @@ class MainForm extends Component {
             prevStep={this.prevStep}
             handleChange={this.change.bind(this)}
             values={values}
-            state={this.state.inputFields3}
+            state={this.state.languages}
           />
         );
 
@@ -203,7 +297,7 @@ class MainForm extends Component {
             prevStep={this.prevStep}
             handleChange={this.change.bind(this)}
             values={values}
-            state={this.state.inputFields4}
+            state={this.state.skills}
           />
         );
       case 7:
@@ -212,6 +306,7 @@ class MainForm extends Component {
             nextStep={this.nextStep}
             prevStep={this.prevStep}
             values={values}
+            save={this.handleSubmit}
           />
         );
 

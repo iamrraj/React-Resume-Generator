@@ -3,19 +3,13 @@ import React, { Component } from "react";
 class Skills extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      inputFields: [
-        {
-          skills: ""
-        }
-      ]
-    };
+    this.state = {};
   }
 
   handleAddFields = () => {
     const values = this.props.state;
     values.push({
-      skills: ""
+      skilss: ""
     });
     this.setState({
       values
@@ -31,7 +25,7 @@ class Skills extends Component {
   };
 
   async onChange(e, index) {
-    if (["skills"].includes(e.target.name)) {
+    if (["skilss"].includes(e.target.name)) {
       let cats = [...this.props.state];
       cats[index][e.target.name] = e.target.value;
       await this.setState({
@@ -55,17 +49,14 @@ class Skills extends Component {
 
   render() {
     return (
-      <div
-        className="resume_container"
-        style={{ top: "60px", position: "relative" }}
-      >
-        <form>
+      <div className="" style={{ paddingBottom: "30px" }}>
+        <form style={{ top: "60px", position: "relative" }}>
           <h1>
             <input
               type="text"
               defaultValue="SKILL"
               name="skill"
-              style={{ border: "none" }}
+              style={{ border: "none", background: "transparent" }}
               onChange={this.props.handleChange}
             />
             <button
@@ -80,45 +71,52 @@ class Skills extends Component {
           <div style={{ marginBottom: "20px" }}>
             <div className="row">
               {this.props.state.map((inputField, index) => (
-                <div className="col-sm-3 " key={`${inputField}~${index}`}>
-                  <div className="form-group">
-                    <label htmlFor="name" className="label">
-                      SKILL{" "}
-                    </label>
-                    <div class="input-group mb-3">
-                      {/* <div class="input-group-prepend">
+                <div className="box1">
+                  <div className="col-sm-3 " key={`${inputField}~${index}`}>
+                    <div className="form-group">
+                      <label htmlFor="name" className="label">
+                        SKILL{" "}
+                      </label>
+                      <div class="form-group">
+                        {/* <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1">
                           <i className="fa fa-language"></i>
                         </span>
                       </div> */}
-                      <input
-                        type="text"
-                        name="skills"
-                        className="form-control"
-                        value={inputField.skills}
-                        onChange={e => {
-                          this.onChange(e, index);
-                        }}
-                      />
+                        <input
+                          type="text"
+                          name="skilss"
+                          style={{ width: "150px" }}
+                          className="form-control"
+                          value={inputField.skilss}
+                          onChange={e => {
+                            this.onChange(e, index);
+                          }}
+                        />
+                      </div>
                     </div>
-                  </div>
-                  <div style={{ marginTop: "-30px" }}>
-                    <button
-                      className="btn btn-danger"
-                      style={{ marginTop: "30px" }}
-                      type="button"
-                      onClick={() => this.handleRemoveFields(index)}
-                    >
-                      <i className="fa fa-trash"></i>
-                    </button>
+                    <div style={{ marginTop: "-30px" }}>
+                      <button
+                        className="btn btn-danger"
+                        style={{ marginTop: "30px" }}
+                        type="button"
+                        onClick={() => this.handleRemoveFields(index)}
+                      >
+                        <i className="fa fa-trash"></i>
+                      </button>
+                    </div>
                   </div>
                 </div>
               ))}
             </div>
           </div>
+          <button onClick={this.back} className="btn btn-info">
+            Back
+          </button>
+          <button onClick={this.saveAndContinue} className="btn btn-success">
+            Save And Continue{" "}
+          </button>
         </form>
-        <button onClick={this.back}>Back</button>
-        <button onClick={this.saveAndContinue}>Save And Continue </button>
       </div>
     );
   }

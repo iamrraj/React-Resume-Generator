@@ -24,16 +24,11 @@ class Success extends Component {
         web,
         skype,
         about,
-        education,
-        language,
-        skill,
-        work,
-        project,
-        inputFields,
-        inputFields1,
-        inputFields2,
-        inputFields3,
-        inputFields4
+        educations,
+        works,
+        projects,
+        languages,
+        skills
       }
     } = this.props;
     return (
@@ -95,11 +90,11 @@ class Success extends Component {
 
             <div className="row main_section">
               <div className="col-sm-6">
-                <h1 className="education">{education.toUpperCase()}</h1>
+                <h1 className="education">EDUCATION</h1>
 
                 {/* This Section For Education List */}
                 <div className="row" style={{ paddingBottom: "8px" }}>
-                  {inputFields.map(c => (
+                  {educations.map(c => (
                     <div className="col-sm-12">
                       <h1 className="name_section">{c.university}</h1>
                       <p className="degree_major">
@@ -120,11 +115,11 @@ class Success extends Component {
 
                 {/* For Work Projects */}
                 <div className="work_experiance" style={{ marginTop: "13px" }}>
-                  <h1 className="education">{work.toUpperCase()}</h1>
+                  <h1 className="education">WORK</h1>
 
                   {/* This Section For Person List */}
                   <div className="row" style={{ paddingBottom: "8px" }}>
-                    {inputFields1.map(c => (
+                    {works.map(c => (
                       <div className="col-sm-12">
                         <h1 className="name_section">{c.postion}</h1>
                         <p className="degree_major">
@@ -148,11 +143,11 @@ class Success extends Component {
 
                 {/* For Personal Projects */}
                 <div className="work_experiance" style={{ marginTop: "13px" }}>
-                  <h1 className="education">{project.toUpperCase()}</h1>
+                  <h1 className="education">PROJECT</h1>
 
                   {/* This Section For Person List */}
                   <div className="row" style={{ paddingBottom: "8px" }}>
-                    {inputFields2.map(c => (
+                    {projects.map(c => (
                       <div className="col-sm-12">
                         <p className="project_head">
                           {c.title}
@@ -177,11 +172,11 @@ class Success extends Component {
               <div className="col-sm-6">
                 {/* For Skills Projects */}
                 <div className="skill_experiance">
-                  <h1 className="education">{skill.toUpperCase()}</h1>
+                  <h1 className="education">SKILL</h1>
 
                   {/* This Section For Person List */}
                   <div className="row bte" style={{ paddingBottom: "8px" }}>
-                    {inputFields4.map(c => (
+                    {skills.map(c => (
                       <button className="btn bttn">
                         {c.skills ? `${c.skills}` : ""}
                       </button>
@@ -194,11 +189,11 @@ class Success extends Component {
                   className="language_experiance"
                   style={{ marginTop: "20px" }}
                 >
-                  <h1 className="education">{language.toUpperCase()}</h1>
+                  <h1 className="education">LANGUAGE</h1>
 
                   {/* This Section For Person List */}
                   <div className="row " style={{ paddingBottom: "8px" }}>
-                    {inputFields3.map(c => (
+                    {languages.map(c => (
                       <div className="col-sm-12">
                         <div className="row">
                           <div className="col-sm-4">
@@ -219,8 +214,11 @@ class Success extends Component {
           </article>
         </section>
 
+        <form onSubmit={this.props.save}>
+          <button>Save And Continue </button>
+        </form>
+
         <button onClick={this.back}>Back</button>
-        <button onClick={this.saveAndContinue}>Save And Continue </button>
       </div>
     );
   }

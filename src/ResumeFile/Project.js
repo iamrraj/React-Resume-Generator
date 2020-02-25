@@ -4,14 +4,7 @@ class Project extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      project: "",
-      inputFields: [
-        {
-          title: "",
-          aproject: "",
-          link: ""
-        }
-      ]
+      project: ""
     };
   }
 
@@ -19,7 +12,7 @@ class Project extends Component {
     const values = this.props.state;
     values.push({
       title: "",
-      aproject: "",
+      projectdetails: "",
       link: ""
     });
     this.setState({
@@ -36,7 +29,7 @@ class Project extends Component {
   };
 
   async onChange(e, index) {
-    if (["title", "aproject", "link"].includes(e.target.name)) {
+    if (["title", "projectdetails", "link"].includes(e.target.name)) {
       let cats = [...this.props.state];
       cats[index][e.target.name] = e.target.value;
       await this.setState({
@@ -71,17 +64,14 @@ class Project extends Component {
   };
   render() {
     return (
-      <div
-        className="resume_container"
-        style={{ top: "60px", position: "relative" }}
-      >
-        <form>
+      <div style={{ paddingBottom: "30px" }}>
+        <form style={{ top: "60px", position: "relative" }}>
           <h1>
             <input
               type="text"
               defaultValue="PROJECT"
               name="project"
-              style={{ border: "none" }}
+              style={{ border: "none", background: "transparent" }}
               onChange={this.props.handleChange}
             />
             <button
@@ -92,99 +82,106 @@ class Project extends Component {
               + Add
             </button>
           </h1>
+
           {this.props.state.map((inputField, index) => (
-            <div
-              key={`${inputField}~${index}`}
-              style={{ marginBottom: "20px" }}
-            >
-              <div className="row">
-                {/* Project Name */}
-                <div className="col-sm-6">
-                  <div className="form-group">
-                    <label htmlFor="name" className="label">
-                      PROJECT TITLE{" "}
-                    </label>
-                    <div className="input-group mb-3">
-                      <div className="input-group-prepend">
-                        <span className="input-group-text" id="basic-addon1">
-                          <i className="fa fa-tasks"></i>
-                        </span>
+            <div className="box1">
+              <div
+                key={`${inputField}~${index}`}
+                style={{ marginBottom: "20px" }}
+              >
+                <div className="row">
+                  {/* Project Name */}
+                  <div className="col-sm-6">
+                    <div className="form-group">
+                      <label htmlFor="name" className="label">
+                        PROJECT TITLE{" "}
+                      </label>
+                      <div className="input-group mb-3">
+                        <div className="input-group-prepend">
+                          <span className="input-group-text" id="basic-addon1">
+                            <i className="fa fa-tasks"></i>
+                          </span>
+                        </div>
+                        <input
+                          type="text"
+                          name="title"
+                          className="form-control"
+                          value={inputField.title}
+                          onChange={e => {
+                            this.onChange(e, index);
+                          }}
+                        />
                       </div>
-                      <input
-                        type="text"
-                        name="title"
-                        className="form-control"
-                        value={inputField.title}
-                        onChange={e => {
-                          this.onChange(e, index);
-                        }}
-                      />
+                    </div>
+                  </div>
+
+                  {/* Project Link */}
+                  <div className="col-sm-6">
+                    <div className="form-group">
+                      <label htmlFor="name" className="label">
+                        PROJECT LINK{" "}
+                      </label>
+                      <div className="input-group mb-3">
+                        <div className="input-group-prepend">
+                          <span className="input-group-text" id="basic-addon1">
+                            <i className="fa fa-link"></i>
+                          </span>
+                        </div>
+                        <input
+                          type="link"
+                          name="link"
+                          className="form-control"
+                          value={inputField.link}
+                          onChange={e => {
+                            this.onChange(e, index);
+                          }}
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
 
-                {/* Project Link */}
-                <div className="col-sm-6">
-                  <div className="form-group">
-                    <label htmlFor="name" className="label">
-                      PROJECT LINK{" "}
-                    </label>
-                    <div className="input-group mb-3">
-                      <div className="input-group-prepend">
-                        <span className="input-group-text" id="basic-addon1">
-                          <i className="fa fa-link"></i>
-                        </span>
-                      </div>
-                      <input
-                        type="link"
-                        name="link"
+                <div className="row">
+                  <div className="col-sm-12">
+                    <div className="form-group">
+                      <label htmlFor="aproject" className="label">
+                        ABOUT PROJECT
+                      </label>
+
+                      <textarea
                         className="form-control"
-                        value={inputField.link}
+                        name="projectdetails"
+                        rows={3}
+                        value={inputField.projectdetails}
                         onChange={e => {
                           this.onChange(e, index);
                         }}
-                      />
+                        required
+                      ></textarea>
                     </div>
                   </div>
                 </div>
-              </div>
-
-              <div className="row">
-                <div className="col-sm-12">
-                  <div className="form-group">
-                    <label htmlFor="aproject" className="label">
-                      ABOUT PROJECT
-                    </label>
-
-                    <textarea
-                      className="form-control"
-                      name="aproject"
-                      rows={3}
-                      value={inputField.aproject}
-                      onChange={e => {
-                        this.onChange(e, index);
-                      }}
-                      required
-                    ></textarea>
-                  </div>
+                <div style={{ marginTop: "-30px" }}>
+                  <button
+                    className="btn btn-danger"
+                    style={{ marginTop: "30px" }}
+                    type="button"
+                    onClick={() => this.handleRemoveFields(index)}
+                  >
+                    <i className="fa fa-trash"></i>
+                  </button>
                 </div>
-              </div>
-              <div style={{ marginTop: "-30px" }}>
-                <button
-                  className="btn btn-danger"
-                  style={{ marginTop: "30px" }}
-                  type="button"
-                  onClick={() => this.handleRemoveFields(index)}
-                >
-                  <i className="fa fa-trash"></i>
-                </button>
               </div>
             </div>
           ))}
-        </form>
 
-        <button onClick={this.back}>Back</button>
-        <button onClick={this.saveAndContinue}>Save And Continue </button>
+          <button onClick={this.back} className="btn btn-info">
+            Back
+          </button>
+          <button onClick={this.saveAndContinue} className="btn btn-success">
+            Save And Continue{" "}
+          </button>
+        </form>
       </div>
     );
   }

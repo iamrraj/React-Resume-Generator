@@ -1,0 +1,68 @@
+:root {
+  --navcover-z-index: 99;
+  --sidenav-z-index: 100;
+}
+
+.nav-cover {
+  position: fixed;
+  z-index: var(--navcover-z-index);
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 100%;
+  /*   background-color: rgba(0, 0, 0, 0.5); */
+}
+
+.side-nav {
+  height: 100%;
+  width: 0; /* to be set in js */
+  position: fixed;
+  overflow-x: hidden;
+  z-index: var(--sidenav-z-index);
+  top: 0;
+  right: 0;
+  background: white;
+  padding-top: 3.5rem;
+  transition: 0.5s;
+}
+
+.side-nav a {
+  padding: 0.5rem 0.5rem 0.5rem 1rem;
+  text-decoration: none;
+  font-size: 17px;
+  color: #818181;
+  display: block;
+  transition: 0.53s;
+  padding-left: 30px;
+  padding-top: 20px;
+  color: black;
+  font-weight: normal;
+}
+
+/* .side-nav a:hover {
+      color: #f1f1f1;
+    } */
+
+.sideheader_image {
+  height: 50px;
+  width: 250px;
+  margin-bottom: -20px;
+}
+
+.side-nav .close-nav {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2.2rem;
+}
+
+.site-wrapper {
+  transition: margin-left 0.5s;
+}
+
+.open-nav {
+  font-size: 2rem;
+  cursor: pointer;
+  position: relative;
+  top: -5px;
+}

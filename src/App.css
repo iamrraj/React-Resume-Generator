@@ -4,6 +4,30 @@
     format("truetype");
 }
 
+.box {
+  -webkit-box-shadow: 6px 30px 30px 9px rgb(225, 225, 225, 0.3);
+  -moz-box-shadow: 6px 30px 30px 9px rgb(225, 225, 225, 0.3);
+  box-shadow: 6px 30px 30px 9px rgb(225, 225, 225, 0.3);
+  margin-top: 15px;
+  border-radius: 7px;
+  padding-bottom: 10px;
+  background-color: white;
+
+  /* "0 9px 17px 8px #E5E8E9"  */
+}
+
+.box1 {
+  -webkit-box-shadow: -6px -10px 10px -9px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: -6px -10px 10px -9px rgba(17, 10, 10, 0.3);
+  box-shadow: 10px 10px 80px 1px rgba(10, 6, 6, 0.3);
+  margin-top: 15px;
+  border-radius: 7px;
+  padding: 10px;
+  background-color: white;
+
+  /* "0 9px 17px 8px #E5E8E9"  */
+}
+
 /* About Page Css */
 .resume_container {
   padding-left: 30px;
@@ -14,6 +38,29 @@
   left: 50%;
   top: 50%;
   transform: translate(-30%, -30%); */
+}
+form {
+  height: 100vh;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin: 0 auto;
+  background-color: white;
+}
+.btn-success {
+}
+/* header {
+  height: 100vh;
+  background-image: url("./img/bg.svg");
+  background-size: cover;
+  background-position: center;
+} */
+.w-25 {
+  max-width: 90px;
+  height: 40px;
+}
+.btn-danger {
+  max-width: 50px;
+  height: 30px;
 }
 
 .file {
