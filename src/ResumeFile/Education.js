@@ -13,8 +13,8 @@ class Education extends Component {
       majorsubject: "",
       startyear: null,
       endyear: null,
-      grade: "",
-      total: "",
+      grade: null,
+      total: null,
       ulocation: "",
       degree: ""
     });

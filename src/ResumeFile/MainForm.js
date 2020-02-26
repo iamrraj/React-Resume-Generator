@@ -47,10 +47,10 @@ class MainForm extends Component {
         {
           postion: "",
           employe: "",
-          startdate: "",
+          startdate: null,
           cname: "",
           wlocation: "",
-          enddate: "",
+          enddate: null,
           description: ""
         }
       ],
@@ -58,10 +58,10 @@ class MainForm extends Component {
         {
           university: "",
           majorsubject: "",
-          startyear: "",
-          endyear: "",
-          grade: "",
-          total: "",
+          startyear: null,
+          endyear: null,
+          grade: null,
+          total: null,
           ulocation: "",
           degree: ""
         }
@@ -175,8 +175,8 @@ class MainForm extends Component {
               majorsubject: "",
               startyear: null,
               endyear: null,
-              grade: "",
-              total: "",
+              grade: null,
+              total: null,
               ulocation: "",
               degree: ""
             }
