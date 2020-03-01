@@ -71,7 +71,7 @@ class Login extends Component {
 
         Swal.fire({
           title: "Log in",
-          type: "success",
+          icon: "success",
           text: "You Successfully loggedin",
           showConfirmButton: false,
           timer: 3000
@@ -82,7 +82,7 @@ class Login extends Component {
         console.log(response);
         Swal.fire({
           title: "Login Error",
-          type: "error",
+          icon: "error",
           text: "Please Enter Correct Username and Password",
           timer: 2000
         });

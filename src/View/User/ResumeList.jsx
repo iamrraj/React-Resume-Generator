@@ -36,11 +36,11 @@ export class ResumeList extends Component {
     }
   }
 
-  onDeleteClick(e, pk) {
+  onDeleteClick(e, id) {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
-      type: "question",
+      icon: "question",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
@@ -59,7 +59,7 @@ export class ResumeList extends Component {
           .then(res => {
             Swal.fire({
               title: "Resume Deleted",
-              type: "success",
+              icon: "success",
               text: "Resume Deleted Successfully !!",
               showConfirmButton: false,
               timer: 2000
@@ -69,11 +69,10 @@ export class ResumeList extends Component {
             console.log(err);
             Swal.fire({
               title: "Resume Deleted",
-              type: "error",
+              icon: "error",
               text: "Error While deleting Resume ??",
               timer: 3000
             });
-            //NotificationManager.error("Error while Creating new book!", "Error!");
           });
       }
     });
@@ -125,7 +124,7 @@ export class ResumeList extends Component {
                           />
                         </div>
                         <div class="col-sm-8">
-                          <h5 class="card-title  pb-3">Resume {i + 1} </h5>
+                          <h5 class="card-title  pb-3">Resume {i + 1}</h5>
                           <p
                             style={{
                               marginTop: "-25px",
@@ -196,7 +195,7 @@ export class ResumeList extends Component {
                         <a
                           href="# "
                           onClick={e => this.onDeleteClick(e, c.id)}
-                          className="float-right text-danger"
+                          className="float-right text-danger h5"
                         >
                           <i className="fa fa-trash"></i>
                         </a>

@@ -197,7 +197,7 @@ class MainForm extends Component {
         this.props.history.push(`/user/view/resume/`);
         Swal.fire({
           title: "Resume Added",
-          type: "success",
+          icon: "success",
           text: "Resume added successfully !!",
           showConfirmButton: false,
           timer: 2000
@@ -207,7 +207,7 @@ class MainForm extends Component {
         console.log(err);
         Swal.fire({
           title: "Resume Added Error",
-          type: "error",
+          icon: "error",
           text: "Error while Creating new Resume!",
           timer: 2000
         });
