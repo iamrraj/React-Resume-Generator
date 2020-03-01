@@ -1,10 +1,38 @@
-
 ## DEMO
-#### FrontEnd : [https://beautiresume.herokuapp.com/](https://beautiresume.herokuapp.com/)    If you get error while running this app please reload page it will work.
 
-#### Backend: [https://softbike.herokuapp.com/api/1/data/resume/](https://softbike.herokuapp.com/api/1/data/resume/)   If you get error while running this app please reload page it will work.
+#### FrontEnd : [https://beautiresume.herokuapp.com/](https://beautiresume.herokuapp.com/) If you get error while running this app please reload page it will work.
 
+#### Backend: [https://softbike.herokuapp.com/api/1/data/resume/](https://softbike.herokuapp.com/api/1/data/resume/) If you get error while running this app please reload page it will work.
 
+### Features
+
+- Login/Registration
+- Minimal Design
+- Create/Edit/Delete Your Resume
+- User Profile
+- Admin Panel
+  - Create/View/Edit/Delete A User
+  - Pagination on All blog list and Live search
+  - Create/View/Edit/Delete A Resume By Any User
+
+## Frontend Setup
+
+1. Navigate the current working directory to : `cd` dir.
+2. Install the all frontend dependencies using npm: `npm install`.
+3. Run the server: `npm start`.
+
+### Creating The First Resume
+
+1. Make sure that both Backend and Frontend Servers are running.
+2. Open your browser and navigate to [localhost:3000](localhost:3000).
+3. Go To [http://localhost:3000/](http://localhost:3000/).
+4. Go To Signup page if you are not registered [http://localhost:3000/register/](http://localhost:3000/register/).
+5. Login with the superuser credentials created while setting up the Backend (Step: 8)
+6. Navigate To _Dashboard -> Your all resume_ ([http://localhost:3000/user/view/resume/create-new-post](http://localhost:3000/user/view/resume/)).
+
+## Backend API Documentation
+
+API Documentation is generated using the default tool provided by Django Rest Framework.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
