@@ -236,3 +236,33 @@ form {
 .faa {
   color: rgb(66, 66, 204);
 }
+
+/* For User Dashboard */
+#fact1 {
+  background: url("https://assets.vogue.com/photos/5bf4664e090f622d55116ce1/master/pass/00-promo-image-the-tulip-skyscraper-building-london.jpg")
+    center top no-repeat fixed;
+  background-size: cover;
+  padding: 40px 0;
+  position: relative;
+  margin-top: 0px;
+
+  color: white;
+}
+
+#fact1::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0%;
+  bottom: 0;
+  background: rgba(5, 5, 5, 0.78);
+  z-index: 0;
+}
+
+#fact1 .container {
+  position: relative;
+  z-index: 100;
+}
+
+/* For Index Bottom Page */

@@ -91,7 +91,7 @@ class Login extends Component {
 
   redirect() {
     if (localStorage.getItem("Token")) {
-      this.props.history.push("/home/");
+      this.props.history.push("/index/");
       window.location.reload();
     }
   }

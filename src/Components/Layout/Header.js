@@ -23,7 +23,7 @@ class Header extends Component {
             <div class="container">
               <a
                 class="navbar-brand js-scroll-trigger text-white"
-                href="/home/"
+                href="/index/"
               >
                 Resume Builder
               </a>

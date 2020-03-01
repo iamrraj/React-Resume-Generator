@@ -7,6 +7,13 @@ import "./App.css";
 import Register from "./Components/Auth/Register";
 import Login from "./Components/Auth/Login";
 import Header from "./Components/Layout/Header";
+import One from "./ResumeFile/Resume/One";
+import ResumeList from "./View/User/ResumeList";
+import Details from "./View/User/Details";
+import Profile from "./View/User/Profile";
+import EditProfile from "./View/User/EditProfile";
+import ViewResume from "./View/User/ViewResume";
+import Home from "./View/Home";
 
 const PrivateRoute = ({ component: Component, ...props }) => {
   return (
@@ -35,8 +42,19 @@ class App extends Component {
         <BrowserRouter>
           <Header loggedIn={localStorage.getItem("Token") != null} />
           <Switch>
-            <PrivateRoute path="/home/" exact component={MainForm} />
-            <PrivateRoute path="/a4/" exact component={A4} />
+            <PrivateRoute path="/home/:name" exact component={MainForm} />
+            <PrivateRoute path="/index/" exact component={Home} />
+            <PrivateRoute path="/a4/" component={A4} />
+            <PrivateRoute path="/one/" component={One} />
+            <PrivateRoute path="/list/" component={ResumeList} />
+            <PrivateRoute path="/list/detail/:name" exact component={Details} />
+            <PrivateRoute path="/user/profile/:name" component={Profile} />
+            <PrivateRoute path="/edit/profile/:name" component={EditProfile} />
+            <PrivateRoute
+              path="/user/view/resume/:name"
+              component={ViewResume}
+            />
+
             <Route path="/register/" exact component={Register} />
             <Route path="/" exact component={Login} />
           </Switch>

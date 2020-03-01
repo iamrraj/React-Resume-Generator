@@ -5,6 +5,7 @@ import Work from "./Work";
 import Project from "./Project";
 import Language from "./Language";
 import Skills from "./Skills";
+import Hobbies from "./Hobbies";
 import Success from "./Success";
 import axios from "axios";
 import Swal from "sweetalert2";
@@ -65,6 +66,11 @@ class MainForm extends Component {
           ulocation: "",
           degree: ""
         }
+      ],
+      hobbies: [
+        {
+          intrest: ""
+        }
       ]
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -114,7 +120,8 @@ class MainForm extends Component {
       languages: [...this.state.languages],
       projects: [...this.state.projects],
       works: [...this.state.works],
-      educations: [...this.state.educations]
+      educations: [...this.state.educations],
+      hobbies: [...this.state.hobbies]
     };
 
     axios({
@@ -180,6 +187,11 @@ class MainForm extends Component {
               ulocation: "",
               degree: ""
             }
+          ],
+          hobbies: [
+            {
+              intrest: ""
+            }
           ]
         });
         this.props.history.push("/driversetting/");
@@ -220,7 +232,8 @@ class MainForm extends Component {
       works,
       projects,
       languages,
-      skills
+      skills,
+      hobbies
     } = this.state;
     const values = {
       photo,
@@ -237,8 +250,10 @@ class MainForm extends Component {
       works,
       projects,
       languages,
-      skills
+      skills,
+      hobbies
     };
+
     switch (step) {
       case 1:
         return (
@@ -300,7 +315,18 @@ class MainForm extends Component {
             state={this.state.skills}
           />
         );
+
       case 7:
+        return (
+          <Hobbies
+            nextStep={this.nextStep}
+            prevStep={this.prevStep}
+            handleChange={this.change.bind(this)}
+            values={values}
+            state={this.state.hobbies}
+          />
+        );
+      case 8:
         return (
           <Success
             nextStep={this.nextStep}

@@ -137,8 +137,18 @@ class SideBar extends React.Component {
           </a>
           <p
             className="navbar-brand text-dark text-capitalize "
-            style={{ paddingLeft: "30px" }}
+            style={{ paddingLeft: "30px", marginBottom: "-10px" }}
           >
+            <img
+              src="https://greenpathcr.com/wp-content/uploads/2019/09/user_circle_1048392.png"
+              alt="Profile"
+              style={{
+                borderRadius: "50%",
+                height: "50px",
+                width: "50px"
+              }}
+            />
+            &nbsp;
             <strong>{window.localStorage.getItem("Name")}</strong>
           </p>
           <hr></hr>
@@ -148,19 +158,26 @@ class SideBar extends React.Component {
             </span>{" "}
             &nbsp; &nbsp; Dashboard
           </a>
-          <a href="/user/addblog/">
+          <a href={`/home/${window.localStorage.getItem("Name")}`}>
             <span>
               <i className="fa fa-plus"></i>{" "}
             </span>{" "}
-            &nbsp; &nbsp; Add Blog
+            &nbsp; &nbsp; Create Resume
           </a>
-          <a href="/user/viewprofile/">
+
+          <a href={`/user/view/resume/${window.localStorage.getItem("Name")}`}>
+            <span>
+              <i className="fa fa-eye"></i>{" "}
+            </span>{" "}
+            &nbsp; &nbsp; Resume List
+          </a>
+          <a href={`/user/profile/${window.localStorage.getItem("Name")}`}>
             <span>
               <i className="fa fa-eye"></i>{" "}
             </span>{" "}
             &nbsp; &nbsp; View Profile
           </a>
-          <a href="/user/editprofile/">
+          <a href={`/edit/profile/${window.localStorage.getItem("Name")}`}>
             <span>
               <i className="fa fa-pen"></i>{" "}
             </span>{" "}

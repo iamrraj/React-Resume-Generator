@@ -22,7 +22,7 @@ export class User extends Component {
       }
     });
     const walk = await res.json();
-    window.localStorage.setItem("Name", walk.first_name);
+    localStorage.setItem("Name", walk.first_name);
     this.setState({
       walk
     });
