@@ -152,6 +152,7 @@ class Project extends Component {
                         className="form-control"
                         name="projectdetails"
                         rows={3}
+                        maxLength={300}
                         value={inputField.projectdetails}
                         onChange={e => {
                           this.onChange(e, index);

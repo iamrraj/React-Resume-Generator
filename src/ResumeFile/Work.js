@@ -266,6 +266,7 @@ class Work extends Component {
                         className="form-control"
                         name="description"
                         rows={3}
+                        maxLength={300}
                         value={inputField.description}
                         onChange={e => {
                           this.onChange(e, index);
