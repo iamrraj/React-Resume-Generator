@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import config from "../../Config/config";
+import axios from "axios";
+import Swal from "sweetalert2";
 
+let authToken = localStorage.getItem("Token");
 export class ResumeList extends Component {
   constructor(props) {
     super(props);
@@ -11,7 +14,6 @@ export class ResumeList extends Component {
   }
 
   async componentDidMount() {
-    let authToken = localStorage.getItem("Token");
     try {
       await fetch(config.apiUrl.resumeuser, {
         method: "GET",
@@ -32,6 +34,49 @@ export class ResumeList extends Component {
     } catch (e) {
       console.log(e);
     }
+  }
+
+  onDeleteClick(e, pk) {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      type: "question",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes",
+      cancelButtonText: "No"
+    }).then(result => {
+      if (result.value) {
+        axios
+          .delete(`${config.apiUrl.resume}${this.props.match.params.pk}/`, {
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+              Authorization: "Bearer " + JSON.parse(authToken)
+            }
+          })
+          .then(res => {
+            Swal.fire({
+              title: "Resume Deleted",
+              type: "success",
+              text: "Resume Deleted Successfully !!",
+              showConfirmButton: false,
+              timer: 2000
+            });
+          })
+          .catch(err => {
+            console.log(err);
+            Swal.fire({
+              title: "Resume Deleted",
+              type: "error",
+              text: "Error While deleting Resume ??",
+              timer: 3000
+            });
+            //NotificationManager.error("Error while Creating new book!", "Error!");
+          });
+      }
+    });
   }
 
   render() {
@@ -148,6 +193,14 @@ export class ResumeList extends Component {
                           More Info
                         </a>
                       </center>
+
+                      <a
+                        href="# "
+                        onClick={e => this.onDeleteClick(e, c.id)}
+                        className="float-right"
+                      >
+                        <i className="fa fa-trash"></i>
+                      </a>
                     </div>
                   </div>
                 </div>
