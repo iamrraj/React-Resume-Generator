@@ -53,7 +53,7 @@ export class ResumeList extends Component {
             headers: {
               Accept: "application/json",
               "Content-Type": "application/json",
-              Authorization: "Bearer " + JSON.parse(authToken)
+              Authorization: "Bearer " + authToken
             }
           })
           .then(res => {
@@ -192,15 +192,15 @@ export class ResumeList extends Component {
                           {" "}
                           More Info
                         </a>
-                      </center>
 
-                      <a
-                        href="# "
-                        onClick={e => this.onDeleteClick(e, c.id)}
-                        className="float-right"
-                      >
-                        <i className="fa fa-trash"></i>
-                      </a>
+                        <a
+                          href="# "
+                          onClick={e => this.onDeleteClick(e, c.id)}
+                          className="float-right text-danger"
+                        >
+                          <i className="fa fa-trash"></i>
+                        </a>
+                      </center>
                     </div>
                   </div>
                 </div>
