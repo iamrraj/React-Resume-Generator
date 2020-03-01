@@ -152,7 +152,7 @@ class SideBar extends React.Component {
             <strong>{window.localStorage.getItem("Name")}</strong>
           </p>
           <hr></hr>
-          <a href="/user/Dashboard/">
+          <a href="/user/view/resume/">
             <span>
               <i className="fa fa-desktop"></i>{" "}
             </span>{" "}
@@ -165,12 +165,6 @@ class SideBar extends React.Component {
             &nbsp; &nbsp; Create Resume
           </a>
 
-          <a href={`/user/view/resume/${window.localStorage.getItem("Name")}`}>
-            <span>
-              <i className="fa fa-eye"></i>{" "}
-            </span>{" "}
-            &nbsp; &nbsp; Resume List
-          </a>
           <a href={`/user/profile/${window.localStorage.getItem("Name")}`}>
             <span>
               <i className="fa fa-eye"></i>{" "}

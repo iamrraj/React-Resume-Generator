@@ -194,7 +194,7 @@ class MainForm extends Component {
             }
           ]
         });
-        this.props.history.push("/driversetting/");
+        this.props.history.push(`/user/view/resume/`);
         Swal.fire({
           title: "Resume Added",
           type: "success",

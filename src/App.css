@@ -4,6 +4,8 @@
     format("truetype");
 }
 
+@import url("https://fonts.googleapis.com/css?family=Spartan&display=swap");
+
 .box {
   -webkit-box-shadow: 6px 30px 30px 9px rgb(225, 225, 225, 0.3);
   -moz-box-shadow: 6px 30px 30px 9px rgb(225, 225, 225, 0.3);
@@ -46,6 +48,23 @@ form {
   margin: 0 auto;
   background-color: white;
 }
+
+.box11 {
+  -webkit-box-shadow: 6px 30px 30px 9px rgb(225, 225, 225, 0.3);
+  -moz-box-shadow: 6px 30px 30px 9px rgb(225, 225, 225, 0.3);
+  box-shadow: 6px 30px 30px 9px rgb(225, 225, 225, 0.3);
+  margin-top: 15px;
+  border-radius: 7px;
+  padding-bottom: 10px;
+  border: 1px solid rgb(225, 225, 225, 0.3);
+  padding: 10px;
+
+  /* "0 9px 17px 8px #E5E8E9"  */
+}
+.coll {
+  width: 30%;
+}
+
 .btn-success {
 }
 /* header {
@@ -102,6 +121,12 @@ form {
 @page {
   size: A4;
 }
+.A4 {
+  width: 290mm;
+  height: 297mm;
+  margin: 0 auto;
+  background-color: white;
+}
 @media print {
   html,
   body {
@@ -121,19 +146,21 @@ form {
 }
 
 .heading {
-  font-family: "Roboto", sans-serif;
   font-weight: 400;
-  font-size: 40px;
+
+  font-size: 38.4834px;
+  text-transform: capitalize;
+  font-family: sans-serif;
 }
 .subheading {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  font-size: 15.5px;
+  text-transform: capitalize;
+
+  font-size: 15px;
   /* text-align: justify; */
   line-height: 20px;
 }
 .basic_information {
-  background-color: aliceblue;
+  background-color: rgb(66, 66, 204, 0.05);
   font-family: "Roboto", sans-serif;
   font-weight: 300;
   padding-top: 15px;
@@ -149,23 +176,24 @@ form {
 }
 .education {
   color: rgb(66, 66, 204);
-  font-family: "Roboto", sans-serif;
+  font-family: sans-serif;
   font-weight: 900;
-  font-size: 32px;
+  font-size: 24px;
+  margin-bottom: 10px;
   letter-spacing: 2px;
 }
 .name_section {
   color: black;
-  font-family: "Roboto", sans-serif;
+  font-family: sans-serif;
   font-weight: bolder;
-  font-size: 23px;
+  font-size: 18px;
   letter-spacing: 0.5px;
 }
 .degree_major {
   color: black;
-  font-family: "Roboto", sans-serif;
+  font-family: sans-serif;
   font-weight: 400;
-  font-size: 23px;
+  font-size: 18px;
   letter-spacing: 0.5px;
 }
 .from_to {
@@ -177,23 +205,22 @@ form {
 }
 
 .about_project1 {
-  font-family: "Roboto", sans-serif;
-
+  font-size: 11px;
+  font-family: sans-serif;
   color: gray;
-  font-size: 13.5px;
   margin-top: -10px;
 }
 
 .about_project {
-  font-family: "Roboto", sans-serif;
+  font-size: 11px;
+  font-family: sans-serif;
   color: gray;
-  font-size: 13.5px;
   margin-top: -10px;
 }
 .project_head {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  font-size: 18px;
+  font-family: sans-serif;
+  /* color: gray; */
+  font-size: 16.765px;
 }
 .bte {
   padding-left: 15px;
@@ -209,6 +236,8 @@ form {
   line-height: 10px;
   margin-right: 10px;
   margin-top: 10px;
+  border-radius: 8px;
+  border: 1px solid rgb(66, 66, 204);
 }
 .bttn:hover {
   background-color: rgb(66, 66, 204);

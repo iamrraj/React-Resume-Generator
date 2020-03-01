@@ -46,14 +46,12 @@ class App extends Component {
             <PrivateRoute path="/index/" exact component={Home} />
             <PrivateRoute path="/a4/" component={A4} />
             <PrivateRoute path="/one/" component={One} />
-            <PrivateRoute path="/list/" component={ResumeList} />
+            {/* <PrivateRoute path="/list/" component={ResumeList} /> */}
             <PrivateRoute path="/list/detail/:name" exact component={Details} />
             <PrivateRoute path="/user/profile/:name" component={Profile} />
             <PrivateRoute path="/edit/profile/:name" component={EditProfile} />
-            <PrivateRoute
-              path="/user/view/resume/:name"
-              component={ViewResume}
-            />
+            <PrivateRoute path="/user/view/resume/" component={ResumeList} />
+            <PrivateRoute path="/resume/detail/:pk" component={ViewResume} />
 
             <Route path="/register/" exact component={Register} />
             <Route path="/" exact component={Login} />
