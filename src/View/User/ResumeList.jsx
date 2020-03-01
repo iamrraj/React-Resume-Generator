@@ -36,47 +36,7 @@ export class ResumeList extends Component {
     }
   }
 
-  onDeleteClick(e, id) {
-    Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
-      icon: "question",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes",
-      cancelButtonText: "No"
-    }).then(result => {
-      if (result.value) {
-        axios
-          .delete(`${config.apiUrl.resume}${this.props.match.params.pk}/`, {
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json",
-              Authorization: "Bearer " + authToken
-            }
-          })
-          .then(res => {
-            Swal.fire({
-              title: "Resume Deleted",
-              icon: "success",
-              text: "Resume Deleted Successfully !!",
-              showConfirmButton: false,
-              timer: 2000
-            });
-          })
-          .catch(err => {
-            console.log(err);
-            Swal.fire({
-              title: "Resume Deleted",
-              icon: "error",
-              text: "Error While deleting Resume ??",
-              timer: 3000
-            });
-          });
-      }
-    });
-  }
+ 
 
   render() {
     const { resume } = this.state;
@@ -192,13 +152,6 @@ export class ResumeList extends Component {
                           More Info
                         </a>
 
-                        <a
-                          href="# "
-                          onClick={e => this.onDeleteClick(e, c.id)}
-                          className="float-right text-danger h5"
-                        >
-                          <i className="fa fa-trash"></i>
-                        </a>
                       </center>
                     </div>
                   </div>
