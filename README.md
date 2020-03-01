@@ -1,3 +1,11 @@
+
+## DEMO
+#### FrontEnd : [https://beautiresume.herokuapp.com/](https://beautiresume.herokuapp.com/)    If you get error while running this app please reload page it will work.
+
+#### Backend: [https://softbike.herokuapp.com/api/1/data/resume/](https://softbike.herokuapp.com/api/1/data/resume/)   If you get error while running this app please reload page it will work.
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
