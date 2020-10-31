@@ -69,7 +69,7 @@ class Language extends Component {
   render() {
     const { code } = this.state;
     return (
-      <div className="" style={{ paddingBottom: "30px" }}>
+      <div id="Main_section" style={{ paddingBottom: "30px" }}>
         <form style={{ top: "60px", position: "relative" }}>
           <h1>
             <input
@@ -173,12 +173,14 @@ class Language extends Component {
               </div>
             </div>
           ))}
+           <div className="button">
           <button onClick={this.back} className="btn btn-info">
             Back
           </button>
           <button onClick={this.saveAndContinue} className="btn btn-success">
             Save And Continue{" "}
           </button>
+          </div>
         </form>
       </div>
     );

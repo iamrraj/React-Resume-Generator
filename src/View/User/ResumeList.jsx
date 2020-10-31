@@ -1,45 +1,25 @@
-import React, { Component } from "react";
-import config from "../../Config/config";
-import axios from "axios";
-import Swal from "sweetalert2";
+import React, { useState, useEffect } from "react";
+import {getResume} from "../../Service/Resume"
+import moment from "moment"
 
-let authToken = localStorage.getItem("Token");
-export class ResumeList extends Component {
-  constructor(props) {
-    super(props);
+const ResumeList =() => {
+  const [resume, setResume] = useState([])
+  
 
-    this.state = {
-      resume: []
-    };
-  }
+  useEffect(() => {
+    getResume().then((data) => {
+      setResume(data)
+    });
+    
+  })
 
-  async componentDidMount() {
-    try {
-      await fetch(config.apiUrl.resumeuser, {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + authToken
-        }
-      })
-        .then(resume => resume.json())
-        .then(resume => {
-          console.log(resume);
-          this.setState({
-            ...this.state,
-            resume
-          });
-        });
-    } catch (e) {
-      console.log(e);
-    }
-  }
+  // const handleDelete =( index) => {
 
- 
+  //   deleteResume(index).then((data) => {
+      
+  //   });
+  // }
 
-  render() {
-    const { resume } = this.state;
     return (
       <div>
         <section id="fact1" class=" text-white">
@@ -49,7 +29,7 @@ export class ResumeList extends Component {
                 <h1 class="display-4 text-white">
                   User{" "}
                   <strong style={{ color: "orange" }}>
-                    {window.localStorage.getItem("Name")}
+                    {window.localStorage.getItem("username")}
                   </strong>{" "}
                   Dashboard
                 </h1>
@@ -60,11 +40,11 @@ export class ResumeList extends Component {
         </section>
 
         <div className="container">
-          <div className="row" style={{ width: "100%" }}>
+          <div className="row " style={{ width: "100%" }}>
             {resume.length > 0 ? (
               resume.map((c, i) => (
                 <div
-                  className="col-md-4 coll "
+                  className="col-md-4  box "
                   style={{ marginBottom: "20px" }}
                   key={c.pk}
                 >
@@ -73,7 +53,7 @@ export class ResumeList extends Component {
                       <div class="row" style={{ marginTop: "20px" }}>
                         <div class="col-sm-3" style={{ marginLeft: "20px" }}>
                           <img
-                            src="https://i.ibb.co/WzYTTSf/66996194-394482144528868-896954686559485952-n.jpg"
+                            src={c.photo ? c.photo : "https://i.ibb.co/WzYTTSf/66996194-394482144528868-896954686559485952-n.jpg"}
                             alt="66996194-394482144528868-896954686559485952-n"
                             style={{
                               borderRadius: "50%",
@@ -93,7 +73,7 @@ export class ResumeList extends Component {
                             }}
                           >
                             <i class="fas fa-clock "></i>
-                            &nbsp;{c.timestamp}
+                            &nbsp;{ moment(c.timestamp).format("YYYY-MM-DD")}
                           </p>
                         </div>
                         <hr></hr>
@@ -144,15 +124,19 @@ export class ResumeList extends Component {
                       <br></br>
                       <center>
                         <a
-                          href={`/resume/detail/${c.id}`}
-                          className="btn btn-info h-100 align-center text-center"
+                          href={`/resume/detail/${c.id}/`}
+                          className="btn btn-login h-100 align-center text-center"
                           style={{ marginTop: "-10px" }}
                         >
                           {" "}
                           More Info
                         </a>
-
+                        <div className="float-right">
+                          <a href="# " >
+                          <i  className="fa fa-trash" style={{fontSize:"19px", color:"rgba(183, 28, 28, 1)"}}></i></a></div>
                       </center>
+
+                     
                     </div>
                   </div>
                 </div>
@@ -184,6 +168,6 @@ export class ResumeList extends Component {
       </div>
     );
   }
-}
+
 
 export default ResumeList;

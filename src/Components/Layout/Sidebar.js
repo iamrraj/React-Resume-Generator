@@ -3,11 +3,9 @@ import "./SideNav.css";
 // import User from "../User";
 import Cookies from "universal-cookie";
 import { withRouter } from "react-router-dom";
-import config from "../../Config/config";
-// import ls from "local-storage";
-
+import { getUser } from "../../Service/Auth";
+import LogoutPopup from "../../Password/LogoutPop"
 const cookies = new Cookies();
-// import header from "./../../img/Just/header.png";
 
 class SideBar extends React.Component {
   constructor(props) {
@@ -15,16 +13,17 @@ class SideBar extends React.Component {
     this.state = {
       showNav: false,
       status: [],
-      user: []
+      user: [],
     };
   }
 
   // componentDidMount() {
   //   if (cookies.get("Token") === null || cookies.get("Token") === undefined) {
-  //     // check if not logged in and get the value from the set cookie
+     
   //     localStorage.clear();
   //     this.props.history.push("/");
-  //     //window.location.reload(1);
+  //     window.location.reload(1);
+
   //     // setTimeout(function() {
   //     //   window.location.reload(1);
   //     // }, 1000);
@@ -34,78 +33,45 @@ class SideBar extends React.Component {
   // }
 
   async componentDidMount() {
-    let authToken = window.localStorage.getItem("Token");
-    Promise.all([
-      fetch(config.apiUrl.status, {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + authToken
-        }
-      })
-        .then(status => status.json())
-        .then(status => {
-          window.localStorage.setItem("Status", status.is_superuser);
-          this.setState({
-            ...this.state,
-            status
-          });
-        }),
-      fetch(config.apiUrl.me, {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + authToken
-        }
-      })
-        .then(user => user.json())
-        .then(user => {
-          window.localStorage.setItem("Name", user.first_name);
-          this.setState({
-            user
-          });
-        })
-    ]);
+    let username = window.localStorage.getItem("username");
+    getUser(username).then((data) => {
+      this.setState({ username: data, status: data.is_superuser });
+    });
   }
 
   onLogout() {
-    // e.preventDefault();
-    cookies.remove("Token", { path: "/" });
     window.localStorage.clear();
+    cookies.remove("Token");
     window.location.href = "/";
-    // window.localStorage.clear();
-
     window.location.reload(1);
   }
 
-  openNavClick = e => {
+  openNavClick = (e) => {
     e.preventDefault();
     this.openNav();
   };
 
-  closeNavClick = e => {
+  closeNavClick = (e) => {
     e.preventDefault();
     this.closeNav();
   };
 
   openNav = () => {
     this.setState({
-      showNav: true
+      showNav: true,
     });
 
     document.addEventListener("keydown", this.handleEscKey);
   };
   closeNav = () => {
     this.setState({
-      showNav: false
+      showNav: false,
     });
 
     document.removeEventListener("keydown", this.handleEscKey);
   };
 
-  handleEscKey = e => {
+  handleEscKey = (e) => {
     if (e.key === "Escape") {
       this.closeNav();
     }
@@ -115,9 +81,10 @@ class SideBar extends React.Component {
     const { showNav, status } = this.state;
     let navCoverStyle = { width: showNav ? "100%" : "0" };
     let sideNavStyle = { width: showNav ? "270px" : "0" };
-
+console.log(status)
     return (
       <React.Fragment>
+         <LogoutPopup />
         <span
           onClick={this.openNavClick}
           class="open-nav text-white"
@@ -132,6 +99,8 @@ class SideBar extends React.Component {
         />
 
         <div name="side-nav" class="side-nav" style={sideNavStyle}>
+
+         
           <a href="# " onClick={this.closeNavClick} class="close-nav">
             &times;
           </a>
@@ -145,11 +114,11 @@ class SideBar extends React.Component {
               style={{
                 borderRadius: "50%",
                 height: "50px",
-                width: "50px"
+                width: "50px",
               }}
             />
             &nbsp;
-            <strong>{window.localStorage.getItem("Name")}</strong>
+            <strong>{window.localStorage.getItem("username")}</strong>
           </p>
           <hr></hr>
           <a href="/user/view/resume/">
@@ -158,7 +127,7 @@ class SideBar extends React.Component {
             </span>{" "}
             &nbsp; &nbsp; Dashboard
           </a>
-          <a href={`/home/${window.localStorage.getItem("Name")}`}>
+          <a href={`/create/resume/`}>
             <span>
               <i className="fa fa-plus"></i>{" "}
             </span>{" "}
@@ -178,7 +147,14 @@ class SideBar extends React.Component {
             &nbsp; &nbsp; Edit Profile
           </a>
 
-          {status.is_superuser === true && (
+          <a href={`/change/password/`}>
+            <span>
+              <i className="fa fa-key"></i>{" "}
+            </span>{" "}
+            &nbsp; &nbsp; Change Password
+          </a>
+
+          {status === true && (
             <span>
               <a href="/admin/userlist/">
                 <span>

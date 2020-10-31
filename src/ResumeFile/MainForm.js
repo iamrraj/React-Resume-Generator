@@ -9,6 +9,8 @@ import Hobbies from "./Hobbies";
 import Success from "./Success";
 import axios from "axios";
 import Swal from "sweetalert2";
+import config from "../Config/config"
+import "./style.css"
 
 let authToken = localStorage.getItem("Token");
 class MainForm extends Component {
@@ -74,6 +76,7 @@ class MainForm extends Component {
       ]
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.ImageChange = this.ImageChange.bind(this)
   }
 
   nextStep = () => {
@@ -98,9 +101,31 @@ class MainForm extends Component {
   }
 
   ImageChange(event) {
-    this.setState({
-      photo: URL.createObjectURL(event.target.files[0])
-    });
+    let reader = new FileReader();
+    let image = event.target.files[0];
+    reader.readAsDataURL(image);
+    
+      reader.onloadend = (e) => {
+        this.setState({
+          photo: reader.result,
+        });
+      };
+  }
+
+
+
+
+  async handleImage(e) {
+    let reader = new FileReader();
+    let image = e.target.files[0];
+    reader.readAsDataURL(image);
+    
+      reader.onloadend = (e) => {
+        this.setState({
+          photo: reader.result,
+        });
+      };
+
   }
 
   handleSubmit(e) {
@@ -126,11 +151,10 @@ class MainForm extends Component {
 
     axios({
       method: "post",
-      url: `https://softbike.herokuapp.com/api/1/data/resume/`,
+      url: config.apiUrl.resume ,
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        // "Content-type": "multipart/form-data",
         Authorization: "Bearer " + authToken
       },
       data
@@ -261,7 +285,7 @@ class MainForm extends Component {
             nextStep={this.nextStep}
             handleChange={this.change.bind(this)}
             values={values}
-            image={this.ImageChange.bind(this)}
+            image={this.ImageChange}
           />
         );
       case 2:

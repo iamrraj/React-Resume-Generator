@@ -6,29 +6,7 @@
 
 @import url("https://fonts.googleapis.com/css?family=Spartan&display=swap");
 
-.box {
-  -webkit-box-shadow: 6px 30px 30px 9px rgb(225, 225, 225, 0.3);
-  -moz-box-shadow: 6px 30px 30px 9px rgb(225, 225, 225, 0.3);
-  box-shadow: 6px 30px 30px 9px rgb(225, 225, 225, 0.3);
-  margin-top: 15px;
-  border-radius: 7px;
-  padding-bottom: 10px;
-  background-color: white;
 
-  /* "0 9px 17px 8px #E5E8E9"  */
-}
-
-.box1 {
-  -webkit-box-shadow: -6px -10px 10px -9px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: -6px -10px 10px -9px rgba(17, 10, 10, 0.3);
-  box-shadow: 10px 10px 80px 1px rgba(10, 6, 6, 0.3);
-  margin-top: 15px;
-  border-radius: 7px;
-  padding: 10px;
-  background-color: white;
-
-  /* "0 9px 17px 8px #E5E8E9"  */
-}
 
 /* About Page Css */
 .resume_container {
@@ -49,18 +27,7 @@ form {
   background-color: white;
 }
 
-.box11 {
-  -webkit-box-shadow: 6px 30px 30px 9px rgb(225, 225, 225, 0.3);
-  -moz-box-shadow: 6px 30px 30px 9px rgb(225, 225, 225, 0.3);
-  box-shadow: 6px 30px 30px 9px rgb(225, 225, 225, 0.3);
-  margin-top: 15px;
-  border-radius: 7px;
-  padding-bottom: 10px;
-  border: 1px solid rgb(225, 225, 225, 0.3);
-  padding: 10px;
 
-  /* "0 9px 17px 8px #E5E8E9"  */
-}
 .coll {
   width: 30%;
 }
@@ -102,23 +69,19 @@ form {
 } */
 
 .top_head {
-  padding-left: 10px;
-  padding-top: 15px;
+  /* padding-left: 10px; */
+  position: relative;
+  top: -600px;
+ 
 }
 
 .A4 {
   background: rgb(204, 204, 204);
   padding-left: 10px;
   padding-right: 10px;
-}
-@media only screen and (max-width: 500px) {
-  .A4 {
-    background: rgb(204, 204, 204);
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-}
-@page {
+} 
+
+/* @page {
   size: A4;
 }
 .A4 {
@@ -143,9 +106,9 @@ form {
     background: initial;
     page-break-after: always;
   }
-}
+} */
 
-.heading {
+/* .heading {
   font-weight: 400;
 
   font-size: 38.4834px;
@@ -157,22 +120,47 @@ form {
 
   font-size: 15px;
   /* text-align: justify; */
-  line-height: 20px;
-}
+  /* line-height: 20px; */
+/* }  */
 .basic_information {
   background-color: rgb(66, 66, 204, 0.05);
   font-family: "Roboto", sans-serif;
   font-weight: 300;
-  padding-top: 15px;
-  padding-left: 40px;
-  padding-right: 40px;
+  padding-top: 25px;
+  padding-bottom: 10px;
+  
+  /* padding-left: 40px;
+  padding-right: 40px; */
+  position: relative;
+  top: -20px;
   margin-top: 15px;
+}
+.basic_information1 {
+  background-color: rgb(66, 66, 204, 0.05);
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  padding-top: 25px;
+  padding-bottom: 10px;
+  position: relative;
+  top: -20px;
+}
+.hello_eductioen{
+  padding-left: 10px;
+}
+.dons{
+  margin-top: 30px;
 }
 
 .main_section {
-  padding-left: 40px;
-  padding-right: 40px;
+  /* padding-left: 40px; */
+  /* padding-right: 40px; */
+  /* margin-top: 15px; */
+  width: 105%;
   margin-top: 15px;
+}
+
+.dod{
+  margin-left: 0px;
 }
 .education {
   color: rgb(66, 66, 204);
@@ -195,6 +183,8 @@ form {
   font-weight: 400;
   font-size: 18px;
   letter-spacing: 0.5px;
+  font-size: 15px;
+  line-height: 15px;
 }
 .from_to {
   font-family: "Roboto", sans-serif;
@@ -205,24 +195,26 @@ form {
 }
 
 .about_project1 {
-  font-size: 11px;
+  font-size: 12px;
   font-family: sans-serif;
   color: gray;
+  line-height: 20px;
   margin-top: -10px;
 }
 
 .about_project {
-  font-size: 11px;
+  font-size: 12px;
   font-family: sans-serif;
   color: gray;
+  line-height: 20px;
   margin-top: -10px;
 }
 .project_head {
   font-family: sans-serif;
-  /* color: gray; */
   font-size: 16.765px;
+  line-height: 15px;
 }
-.bte {
+/* .bte {
   padding-left: 15px;
 }
 
@@ -264,7 +256,7 @@ form {
 }
 .faa {
   color: rgb(66, 66, 204);
-}
+} */
 
 /* For User Dashboard */
 #fact1 {
@@ -295,3 +287,26 @@ form {
 }
 
 /* For Index Bottom Page */
+
+
+
+
+.progress {
+  margin-bottom: 10px;
+  border-radius: 20px;
+}
+
+.progress-bar {
+  width: 0;
+  border-radius: 20px;
+  position:relative;
+}
+.progress-bar span[data-toggle="tooltip"]{
+  width: 16px;
+  height: 16px;
+  border-radius: 20px;
+  background: red;
+  position:absolute;
+  right:0px;
+  top:0;
+}

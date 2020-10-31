@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import config from "../../Config/config";
+import { ProgressBar } from "react-bootstrap";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
+
 
 class ViewResume extends Component {
   constructor(props) {
@@ -13,7 +15,7 @@ class ViewResume extends Component {
       projects: [],
       works: [],
       educations: [],
-      hobbies: []
+      hobbies: [],
     };
   }
 
@@ -25,11 +27,11 @@ class ViewResume extends Component {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
-          Authorization: "Bearer " + authToken
-        }
+          Authorization: "Bearer " + authToken,
+        },
       })
-        .then(blog => blog.json())
-        .then(blog => {
+        .then((blog) => blog.json())
+        .then((blog) => {
           this.setState({
             ...this.state,
             blog,
@@ -38,7 +40,7 @@ class ViewResume extends Component {
             projects: blog.projects,
             languages: blog.languages,
             skills: blog.skills,
-            hobbies: blog.hobbies
+            hobbies: blog.hobbies,
           });
         });
     } catch (e) {
@@ -46,15 +48,35 @@ class ViewResume extends Component {
     }
   }
 
-  printDocument() {
+  printDocument(name)  {
     const input = document.getElementById("divToPrint");
-    html2canvas(input).then(canvas => {
+    window.scrollTo(0, 0);
+    html2canvas(input).then((canvas) => {
+      document.body.appendChild(canvas);
+      var imgWidth = 210;
+      var pageHeight = 295;
+      var imgHeight = (canvas.height * imgWidth) / canvas.width;
+      var heightLeft = imgHeight;
       const imgData = canvas.toDataURL("image/png");
-      const pdf = new jsPDF();
-      pdf.addImage(imgData, "JPEG", 0, 0);
-      // pdf.output('dataurlnewwindow');
-      pdf.save("download.pdf");
+      window.open(imgData);
+      const pdf = new jsPDF("p", "mm");
+      var position = -2;
+      pdf.addImage(imgData, "JPEG", 0, position, imgWidth, imgHeight);
+      heightLeft -= pageHeight;
+  
+      /* add extra pages if the div size is larger than a a4 size */
+      while (heightLeft >= 0) {
+        position = heightLeft - imgHeight;
+        pdf.addPage();
+        pdf.addImage(imgData, "JPEG", 0, position, imgWidth, imgHeight);
+        heightLeft -= pageHeight;
+      }
+      pdf.save(`${name}.pdf`);
     });
+    window.scrollTo(
+      0,
+      document.body.scrollHeight || document.documentElement.scrollHeight
+    );
   }
 
   render() {
@@ -65,7 +87,7 @@ class ViewResume extends Component {
       works,
       skills,
       languages,
-      hobbies
+      hobbies,
     } = this.state;
     //  localStorage.setItem("Total", blog.length);
     return (
@@ -87,7 +109,7 @@ class ViewResume extends Component {
         <button
           className="btn btn-success"
           style={{ width: "100px", height: "50px" }}
-          onClick={this.printDocument.bind(this)}
+          onClick={this.printDocument.bind(blog.name)}
         >
           Print
         </button>
@@ -97,21 +119,37 @@ class ViewResume extends Component {
           style={{
             backgroundColor: "#f5f5f5",
             width: "210mm",
-            minHeight: "297mm",
+            minHeight: "280mm",
             marginLeft: "auto",
-            marginRight: "auto"
+            marginRight: "auto",
           }}
         >
           <section class="sheet ">
             <article>
-              <div className="row top_head basic_information bg-white">
-                <div className="col-sm-12">
+              <div className="row top_head basic_information1 bg-white">
+              <div className="col-sm-2">
+              <img
+                      src={
+                        blog.photo
+                          ? `${blog.photo}`
+                          : "https://greenpathcr.com/wp-content/uploads/2019/09/user_circle_1048392.png"
+                      }
+                      alt="Profile"
+                      style={{
+                        borderRadius: "50%",
+                        height: "130px",
+                        width: "130px",
+                        marginLeft: "-30px"
+                      }}
+                    />
+                </div>
+                <div className="col-sm-10" style={{marginTop:"-20px"}}>
                   <h1 className="heading">{blog.name}</h1>
-                  <p className="subheading">{blog.about}</p>
+                  <p className="subheading text-justify" >{blog.about}</p>
                 </div>
               </div>
 
-              <div className="row basic_information ">
+              <div className="row basic_information fuel_basic ">
                 <div className="col-sm-4">
                   <p>
                     <a
@@ -130,15 +168,15 @@ class ViewResume extends Component {
                       className="text-dark"
                       rel="noopener noreferrer"
                     >
-                      <i className="fab fa-linkedin faa"></i> &nbsp;{" "}
-                      {blog.linkedin}
+                      <i className="fab fa-linkedin faa"> &nbsp; {blog.linkedin}</i>{" "}
+                      &nbsp;{" "}
                     </a>
                   </p>
                   <p>
                     <a
                       href={`mailto:${blog.email}`}
                       target="_blank"
-                      className="text-dark"
+                      className="text-dark dd"
                       rel="noopener noreferrer"
                     >
                       <span className=" faa">@</span> &nbsp; {blog.email}
@@ -154,10 +192,10 @@ class ViewResume extends Component {
                     <a
                       href={blog.github ? `${blog.github}` : "# "}
                       target="_blank"
-                      className="text-dark"
+                      className="text-dark dons"
                       rel="noopener noreferrer"
                     >
-                      <i className="fab fa-github faa"></i> &nbsp; {blog.github}
+                      <i className="fab fa-github faa">&nbsp; {blog.github}</i>
                     </a>
                   </p>
                 </div>
@@ -169,16 +207,16 @@ class ViewResume extends Component {
                     <a
                       href={blog.web ? `${blog.web}` : "# "}
                       target="_blank"
-                      className="text-dark"
+                      className="text-dark dons"
                       rel="noopener noreferrer"
                     >
-                      <i className="fa fa-globe faa"></i> &nbsp; {blog.web}
+                      <i className="fa fa-globe faa">&nbsp; {blog.web}</i>
                     </a>
                   </p>
                 </div>
               </div>
 
-              <div className="row main_section">
+              <div className="row main_section ">
                 <div className="col-sm-6">
                   {/* This Section For Education List */}
 
@@ -188,7 +226,7 @@ class ViewResume extends Component {
 
                     {/* This Section For Person List */}
                     <div className="row" style={{ paddingBottom: "8px" }}>
-                      {works.map(c => (
+                      {works.map((c) => (
                         <div className="col-sm-12">
                           <h1 className="name_section">{c.postion}</h1>
                           <p className="degree_major">
@@ -198,7 +236,7 @@ class ViewResume extends Component {
                           <p className="from_to">
                             <span>
                               {c.startdate
-                                ? `${new Date(c.startdate).getMonth()}`
+                                ? `${new Date(c.startdate).getMonth() < 10 ? `0${new Date(c.startdate).getMonth()}` : new Date(c.startdate).getMonth()}`
                                 : " "}{" "}
                               /
                               {c.startdate
@@ -206,7 +244,7 @@ class ViewResume extends Component {
                                 : " "}{" "}
                               &nbsp; - &nbsp;
                               {c.enddate
-                                ? `${new Date(c.enddate).getMonth()}`
+                                ? `${new Date(c.enddate).getMonth() < 10 ? `0${new Date(c.enddate).getMonth()}` : new Date(c.enddate).getMonth()}`
                                 : " "}{" "}
                               /
                               {c.enddate
@@ -238,7 +276,7 @@ class ViewResume extends Component {
 
                     {/* This Section For Person List */}
                     <div className="row" style={{ paddingBottom: "8px" }}>
-                      {projects.map(c => (
+                      {projects.map((c) => (
                         <div className="col-sm-12">
                           <p className="project_head">
                             {c.title} {c.title ? `${c.title}` : " "}
@@ -256,11 +294,14 @@ class ViewResume extends Component {
                 </div>
 
                 {/* Another Part Of Resume  */}
-                <div className="col-sm-6">
+                <div className="col-sm-6 dod">
                   {/* For Education Projects */}
-                  <h1 className="education">EDUCATION</h1>
-                  <div className="row" style={{ paddingBottom: "8px" }}>
-                    {educations.map(c => (
+                  <h1 className="education hello_eductioen">EDUCATION</h1>
+                  <div
+                    className="row hello_eductioen"
+                    style={{ paddingBottom: "8px" }}
+                  >
+                    {educations.map((c) => (
                       <div className="col-sm-12">
                         <h1 className="name_section">{c.university}</h1>
                         <p className="degree_major">
@@ -269,7 +310,7 @@ class ViewResume extends Component {
                         <p className="from_to">
                           <span>
                             {c.startyear
-                              ? `${new Date(c.startyear).getMonth()}`
+                              ? `${new Date(c.startyear).getMonth() < 10 ? `0${new Date(c.startyear).getMonth()}` : new Date(c.startyear).getMonth()}`
                               : " "}{" "}
                             /
                             {c.startyear
@@ -277,7 +318,7 @@ class ViewResume extends Component {
                               : " "}{" "}
                             &nbsp; - &nbsp;
                             {c.endyear
-                              ? `${new Date(c.endyear).getMonth()}`
+                              ? `${new Date(c.endyear).getMonth() < 10 ? `0${new Date(c.endyear).getMonth()}` : new Date(c.endyear).getMonth()}`
                               : " "}{" "}
                             /
                             {c.endyear
@@ -294,20 +335,25 @@ class ViewResume extends Component {
                   </div>
 
                   {/* For Skill Projects */}
-                  <div className="skill_experiance">
-                    <h1 className="education">SKILL</h1>
+                  <div className="skill_experiance hello_eductioen">
+                    <h1 className="education ">SKILL</h1>
 
                     {/* This Section For Person List */}
-                    <div className="row bte" style={{ paddingBottom: "8px" }}>
-                      {skills.map(c => (
+                    <div
+                      className="row bte hello_eductioen"
+                      style={{ paddingBottom: "8px" }}
+                    >
+                      {skills.map((c) => (
                         <button
                           className="btn bttn  "
                           style={{
                             border: "1px solid gray",
-                            // background: "white",
+                            backgroundColor:"rgb(66, 66, 204)",
+                            marginTop: "5px",
                             color: "white",
                             fontSize: "12px",
-                            width: "100px"
+                            width: "100px",
+                            marginLeft: "5px",
                           }}
                         >
                           {c.skilss ? `${c.skilss}` : ""}
@@ -318,7 +364,7 @@ class ViewResume extends Component {
 
                   {/* For LANGUAGE Projects */}
                   <div
-                    className="language_experiance"
+                    className="language_experiance hello_eductioen"
                     style={{ marginTop: "20px" }}
                   >
                     <h1 className="education">LANGUAGE</h1>
@@ -328,16 +374,29 @@ class ViewResume extends Component {
                       className="row "
                       style={{ paddingBottom: "8px", marginTop: "15px" }}
                     >
-                      {languages.map(c => (
+                      {languages.map((c) => (
                         <div className="col-sm-12">
                           <div className="row">
                             <div className="col-sm-4">
                               {" "}
                               {c.language ? `${c.language}` : ""}
                             </div>
-                            <div className="col-sm-4">
+                            <div className="col-sm-8">
                               {" "}
-                              {c.level ? `${c.level}` : ""}
+                              {/* {c.level ? `${c.level}` : ""} */}
+                              <ProgressBar
+                                now={
+                                  c.level === "Native"
+                                    ? 100
+                                    : c.level === "Full-Professional"
+                                    ? 80
+                                    : c.level === "Freelance"
+                                    ? 60
+                                    : c.level === "Contract"
+                                    ? 40
+                                    : 30
+                                }
+                              />
                             </div>
                           </div>
                         </div>
@@ -346,22 +405,28 @@ class ViewResume extends Component {
                   </div>
 
                   <div
-                    className="skill_experiance"
+                    className="skill_experiance hello_eductioen"
                     style={{ marginTop: "20px" }}
                   >
                     <h1 className="education">INTERESTS</h1>
 
                     {/* This Section For Person List */}
-                    <div className="row bte" style={{ paddingBottom: "8px" }}>
-                      {hobbies.map(c => (
+                    <div
+                      className="row bte hello_eductioen"
+                      style={{ paddingBottom: "8px" }}
+                    >
+                      {hobbies.map((c) => (
                         <button
-                          className="btn bttn text-dark "
+                          className="btn bttn "
                           style={{
                             border: "1px solid gray",
-                            background: "white",
-                            color: "black",
+                            backgroundColor:"rgb(66, 66, 204)",
+                           
+                            color: "white",
                             fontSize: "12px",
-                            width: "110px"
+                            width: "100px",
+                            marginTop: "5px",
+                            marginLeft: "5px",
                           }}
                         >
                           {c.intrest ? `${c.intrest}` : ""}

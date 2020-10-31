@@ -1,0 +1,214 @@
+@media screen and (min-width: 100px) and (max-width: 800px) {
+    .don_sm {
+      width: 400px;
+    }
+    .hip1 {
+      margin-left: 20px;
+      overflow: hidden;
+    }
+    .mb-2 {
+      line-height: 200px;
+      margin-left: -10px;
+    }
+    .user {
+      width: 270px;
+      margin-left: -10px;
+    }
+    .helll_my {
+      max-width: 100%;
+      overflow: hidden;
+    }
+    .Main_section1 {
+      max-width: 100%;
+    }
+    .mb-4{
+        position: relative;
+        top: -60px;
+    }
+    .user{
+        position: relative;
+        top: -40px; 
+        margin: 0 auto;
+        max-width: 100%;
+    }
+   
+  }
+  .forget_name{
+      margin-bottom: 10px;
+  }
+
+
+  .hip1 {
+     position: absolute; 
+    left: 50%; 
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .btn-login{
+    background: rgba(183, 28, 28, 1);
+    padding: 10px;
+    font-size: 15px;
+    box-shadow: 0px 8px 25px -7px #c0c0c0;
+    border-radius: 4px;
+    width: "100%";
+    color: white;
+    height: 43px;
+    font-weight: bolder;
+    margin-top: 25px;
+    
+  }
+  .btn-login:hover{
+    color: white;
+  }
+  .password{
+    margin-top: 25px;
+  }
+
+.full{
+  float: right;
+  position: relative;
+  top: -30px;
+  left: -10px;
+}
+
+
+.progress {
+  margin-bottom: 10px;
+  border-radius: 20px;
+}
+
+.progress-bar {
+  width: 0;
+  border-radius: 20px;
+  position:relative;
+}
+.progress-bar span[data-toggle="tooltip"]{
+  width: 16px;
+  height: 16px;
+  border-radius: 20px;
+  background: red;
+  position:absolute;
+  right:0px;
+  top:0;
+}
+
+
+#fact1 {
+  background: url("https://assets.vogue.com/photos/5bf4664e090f622d55116ce1/master/pass/00-promo-image-the-tulip-skyscraper-building-london.jpg")
+    center top no-repeat fixed;
+  background-size: cover;
+  padding: 40px 0;
+  position: relative;
+  margin-top: 0px;
+
+  color: white;
+}
+
+#fact1::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0%;
+  bottom: 0;
+  background: rgba(5, 5, 5, 0.78);
+  z-index: 0;
+}
+
+#fact1 .container {
+  position: relative;
+  z-index: 100;
+}
+
+.about_project1 {
+  font-size: 12px;
+  font-family: sans-serif;
+  color: gray;
+  line-height: 20px;
+  margin-top: -10px;
+}
+
+.about_project {
+  font-size: 12px;
+  font-family: sans-serif;
+  color: gray;
+  line-height: 20px;
+  margin-top: -10px;
+}
+.project_head {
+  font-family: sans-serif;
+  font-size: 16.765px;
+  line-height: 15px;
+}
+
+.education {
+  color: rgb(66, 66, 204);
+  font-family: sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+.name_section {
+  color: black;
+  font-family: sans-serif;
+  font-weight: bolder;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+}
+.degree_major {
+  color: black;
+  font-family: sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  font-size: 15px;
+  line-height: 15px;
+}
+
+.main_section {
+  /* padding-left: 40px; */
+  /* padding-right: 40px; */
+  /* margin-top: 15px; */
+  width: 105%;
+  margin-top: 1px;
+}
+
+.basic_information {
+  background-color: rgb(66, 66, 204, 0.05);
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  padding-top: 25px;
+  padding-bottom: 10px;
+  
+  /* padding-left: 40px;
+  padding-right: 40px; */
+  position: relative;
+  top: -20px;
+  margin-top: 5px;
+}
+.basic_information1 {
+  background-color: rgb(66, 66, 204, 0.05);
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  padding-top: 25px;
+  padding-bottom: 10px;
+  position: relative;
+  top: -20px;
+}
+.hello_eductioen{
+  padding-left: 10px;
+}
+.dons{
+  margin-top: 30px;
+}
+.progress{
+  height: 10px;
+  margin-top: 5px;
+}
+.subheading{
+  line-height: 20px;
+}
+canvas {
+  display: none;
+}

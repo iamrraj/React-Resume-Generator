@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { getUser } from "../../Service/Auth";
 import config from "../../Config/Config";
 
 export class User extends Component {

@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 
 class Success extends Component {
-  saveAndContinue = e => {
+  saveAndContinue = (e) => {
     e.preventDefault();
     this.props.nextStep();
   };
 
-  back = e => {
+  back = (e) => {
     e.preventDefault();
     this.props.prevStep();
   };
@@ -14,7 +14,7 @@ class Success extends Component {
   render() {
     const {
       values: {
-        photo,
+       
         name,
         location,
         github,
@@ -29,11 +29,11 @@ class Success extends Component {
         projects,
         languages,
         skills,
-        hobbies
-      }
+        hobbies,
+      },
     } = this.props;
     return (
-      <div class="A4">
+      <div class="" id="Main_section1">
         <section class="sheet ">
           <article>
             <div className="row top_head basic_information bg-white">
@@ -118,7 +118,7 @@ class Success extends Component {
 
                   {/* This Section For Person List */}
                   <div className="row" style={{ paddingBottom: "8px" }}>
-                    {works.map(c => (
+                    {works.map((c) => (
                       <div className="col-sm-12">
                         <h1 className="name_section">{c.postion}</h1>
                         <p className="degree_major">
@@ -165,7 +165,7 @@ class Success extends Component {
 
                   {/* This Section For Person List */}
                   <div className="row" style={{ paddingBottom: "8px" }}>
-                    {projects.map(c => (
+                    {projects.map((c) => (
                       <div className="col-sm-12">
                         <p className="project_head">
                           {c.title} {c.title ? `${c.title}` : " "}
@@ -187,7 +187,7 @@ class Success extends Component {
                 {/* For Education Projects */}
                 <h1 className="education">EDUCATION</h1>
                 <div className="row" style={{ paddingBottom: "8px" }}>
-                  {educations.map(c => (
+                  {educations.map((c) => (
                     <div className="col-sm-12">
                       <h1 className="name_section">{c.university}</h1>
                       <p className="degree_major">
@@ -226,7 +226,7 @@ class Success extends Component {
 
                   {/* This Section For Person List */}
                   <div className="row bte" style={{ paddingBottom: "8px" }}>
-                    {skills.map(c => (
+                    {skills.map((c) => (
                       <button
                         className="btn bttn  "
                         style={{
@@ -234,7 +234,7 @@ class Success extends Component {
                           // background: "white",
                           color: "white",
                           fontSize: "15px",
-                          width: "120px"
+                          width: "120px",
                         }}
                       >
                         {c.skilss ? `${c.skilss}` : ""}
@@ -255,7 +255,7 @@ class Success extends Component {
                     className="row "
                     style={{ paddingBottom: "8px", marginTop: "15px" }}
                   >
-                    {languages.map(c => (
+                    {languages.map((c) => (
                       <div className="col-sm-12">
                         <div className="row">
                           <div className="col-sm-4">
@@ -277,7 +277,7 @@ class Success extends Component {
 
                   {/* This Section For Person List */}
                   <div className="row bte" style={{ paddingBottom: "8px" }}>
-                    {hobbies.map(c => (
+                    {hobbies.map((c) => (
                       <button
                         className="btn bttn text-dark "
                         style={{
@@ -285,7 +285,7 @@ class Success extends Component {
                           background: "white",
                           color: "black",
                           fontSize: "15px",
-                          width: "140px"
+                          width: "140px",
                         }}
                       >
                         {c.intrest ? `${c.intrest}` : ""}
@@ -297,6 +297,17 @@ class Success extends Component {
             </div>
           </article>
         </section>
+        <div className="button">
+        <form onSubmit={this.props.save}>
+       
+          <button className="btn btn-success" >Save And Continue </button>
+          
+        </form>
+        <button onClick={this.back} className="btn btn-info">
+          Back
+        </button>
+        </div>
+       
       </div>
     );
   }

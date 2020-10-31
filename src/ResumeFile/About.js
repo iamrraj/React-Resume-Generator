@@ -30,7 +30,7 @@ class About extends Component {
   render() {
     const { values } = this.props;
     return (
-      <span>
+      <span >
         {localStorage.getItem("Total") > 2 &&
         localStorage.getItem("Status") === true ? (
           <section
@@ -54,7 +54,7 @@ class About extends Component {
             </div>
           </section>
         ) : (
-          <div className="" style={{ paddingBottom: "30px" }}>
+          <div id="Main_section" style={{ paddingBottom: "30px" }}>
             <h1>Personal Details </h1>
 
             <form>
@@ -79,7 +79,7 @@ class About extends Component {
                       onChange={this.props.image}
                       name="photo"
                       className="file-1"
-                      defaultValue={values.photo}
+                      
                     />
                   </div>
                 </div>
