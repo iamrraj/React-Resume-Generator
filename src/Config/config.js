@@ -1,6 +1,6 @@
 
-//const api = `https://inback.herokuapp.com/api/1/`;
-const api = `http://localhost:8000/api/1/` ? `http://localhost:8000/api/1/` :  `https://inback.herokuapp.com/api/1/` ;
+const api = `https://inback.herokuapp.com/api/1/`;
+//const api = `http://localhost:8000/api/1/` ? `http://localhost:8000/api/1/` :  `https://inback.herokuapp.com/api/1/` ;
 
 let authToken = localStorage.getItem("Token");
 const config = {
