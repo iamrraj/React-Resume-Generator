@@ -1,8 +1,8 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import Swal from "sweetalert2";
 import axios from "axios";
 import config from "../Config/config";
-
+import PasswordStrength from "./Passsword/PasswordStrength";
 
 function ResetPassword() {
   const [password, setPassword] = useState({
@@ -64,16 +64,16 @@ function ResetPassword() {
             timer: 2000,
           });
         });
-      } else {
-        Swal.fire({
-          title: "Password Error",
-          icon: "warning",
-          text:
-            "Your password must contain at least one small , big letter and least one digit",
-          timer: 2000,
-        });
-      }
-    } 
+    } else {
+      Swal.fire({
+        title: "Password Error",
+        icon: "warning",
+        text:
+          "Your password must contain at least one small , big letter and least one digit",
+        timer: 2000,
+      });
+    }
+  };
   return (
     <div className="container hip1">
       {/* <!-- Outer Row --> */}
@@ -93,10 +93,7 @@ function ResetPassword() {
                 <div class="col-lg-6 don_sm">
                   <div class="p-5">
                     <div class="text-center">
-                      <h1
-                        class="h4 hee forget_name text-gray-900 mb-2"
-                        
-                      >
+                      <h1 class="h4 hee forget_name text-gray-900 mb-2">
                         Forget Password ?
                       </h1>
                       <p class="mb-4 " style={{ marginTop: "20px" }}>
@@ -118,19 +115,18 @@ function ResetPassword() {
                           value={password.password}
                           onChange={handleChange}
                         />
+                        {PasswordStrength(password.password)}
                       </div>
 
                       <div class="form-group">
-                      <input
+                        <input
                           type="password"
                           name="confirmPassword"
                           className="form-control password"
                           placeholder="Confirm Password"
-                          
                           value={password.confirmPassword}
                           onChange={handleChange}
                         />
-
                         {password.password !== password.confirmPassword ? (
                           password.confirmPassword.length > 1 ? (
                             <span
@@ -151,7 +147,8 @@ function ResetPassword() {
                           </span>
                         ) : (
                           ""
-                        )}       </div>
+                        )}{" "}
+                      </div>
                       <button
                         type="submit"
                         value="Login"
@@ -159,7 +156,6 @@ function ResetPassword() {
                           password.password !== password.confirmPassword
                         }
                         className="btn btn-login btn-block t"
-                        
                       >
                         RESET PASSWORD
                       </button>

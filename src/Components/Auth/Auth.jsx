@@ -29,7 +29,6 @@ function Auth() {
   };
 
   const handleSubmit = (e) => {
-    
     e.preventDefault();
     Swal.fire({
       title: "Loading",
@@ -47,7 +46,6 @@ function Auth() {
       url: config.apiUrl.login,
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
-       
       },
 
       data: `grant_type=${GRANT_TYPE}&username=${password.username}&password=${password.password}&client_id=${CLIENT_ID}`,
@@ -66,14 +64,13 @@ function Auth() {
         setTimeout(function () {
           window.location.href = "/home/";
         }, 2000);
-        
       })
       .catch((reject) => {
         console.log(reject);
         Swal.fire({
           title: "Login Error",
           icon: "error",
-          text:  reject.response.data.error_description,
+          text: reject.response.data.error_description,
           timer: 2000,
         });
       });

@@ -4,7 +4,7 @@ import axios from "axios";
 import config from "../Config/config";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
-
+import PasswordStrength from "./Passsword/PasswordStrength";
 
 const authToken = localStorage.getItem("Token");
 function ChangePassword() {
@@ -46,7 +46,6 @@ function ChangePassword() {
 
     if (isOk) {
       axios({
-
         url: config.apiUrl.passwordChnage,
         method: "put",
         headers: {
@@ -149,6 +148,7 @@ function ChangePassword() {
                             <VisibilityOff className="opp" />
                           )}
                         </span>
+                        {PasswordStrength(password.new_password)}
                       </div>
 
                       <div class="form-group">
