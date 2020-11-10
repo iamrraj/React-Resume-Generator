@@ -148,7 +148,7 @@ function ChangePassword() {
                             <VisibilityOff className="opp" />
                           )}
                         </span>
-                        {PasswordStrength(password.new_password)}
+                        <PasswordStrength password={password.new_password} />
                       </div>
 
                       <div class="form-group">

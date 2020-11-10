@@ -115,7 +115,7 @@ function ResetPassword() {
                           value={password.password}
                           onChange={handleChange}
                         />
-                        {PasswordStrength(password.password)}
+                        <PasswordStrength password={password.password} />
                       </div>
 
                       <div class="form-group">
