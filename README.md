@@ -6,7 +6,10 @@
 
 ### Features
 
-- Login/Registration
+- Login/Registration (Send Email Confirmation after Registration_
+- Change Password
+- Forget Password
+- Session Timeout (Auto Logout after 5 minutes inactive session)
 - Minimal Design
 - Create/Edit/Delete Your Resume
 - User Profile
