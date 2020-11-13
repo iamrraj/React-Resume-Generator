@@ -5,8 +5,8 @@ import { withRouter } from "react-router-dom";
 
 const cookies = new Cookies();
 const LogoutPopup = () => {
-  const [signoutTime, setSignoutTime] = useState(300000);
-  const [warningTime, setWarningTime] = useState(240000);
+  const [signoutTime, setSignoutTime] = useState(1800000);
+  const [warningTime, setWarningTime] = useState(1500000);
   let warnTimeout;
   let logoutTimeout;
 
@@ -31,7 +31,7 @@ const LogoutPopup = () => {
     localStorage.removeItem("Name");
     cookies.remove("Token");
     localStorage.removeItem("Token");
-    window.location.href =  "/";
+    window.location.href = "/";
     window.location.reload();
   };
 
@@ -69,7 +69,7 @@ const LogoutPopup = () => {
     if (count < deadTime) {
       var don = deadTime - count;
       var minutes = TrainingTime(don);
-      document.getElementById("demo").innerHTML = minutes;
+      document.getElementById("demo").innerHTML = ""; //minutes;
       setTimeout(beginTimer, 2000);
     } else {
       endTimer();
@@ -117,8 +117,9 @@ const LogoutPopup = () => {
 
   return (
     <div>
-      <h5 id="demo" className="text-white">  </h5>
-     
+      <h5 id="demo" className="text-white">
+        {" "}
+      </h5>
     </div>
   );
 };

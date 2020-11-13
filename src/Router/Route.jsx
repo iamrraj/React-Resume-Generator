@@ -12,6 +12,12 @@ import {
   ResumeList,
   ViewResume,
   ChangePassword,
+  Profile,
+  Feed,
+  Blog,
+  Tags,
+  BlogDetail,
+  EditProfile,
 } from "./Index";
 
 const PrivateRoute = ({ component: Component, ...props }) => {
@@ -85,11 +91,13 @@ function Router() {
           <PrivateRoute path="/user/view/resume/" component={ResumeList} />
           <PrivateRoute path="/resume/detail/:pk/" component={ViewResume} />
           <PrivateRoute path="/change/password/" component={ChangePassword} />
-          {/* <PrivateRoute path="/a4/" component={A4} />
-            <PrivateRoute path="/one/" component={One} />
-            <PrivateRoute path="/list/detail/:name" exact component={Details} />
-            <PrivateRoute path="/user/profile/:name" component={Profile} />
-            <PrivateRoute path="/edit/profile/:name" component={EditProfile} /> */}
+          <PrivateRoute path="/User/:username/" component={Profile} />
+          <PrivateRoute path="/feed/" component={Feed} />
+          <PrivateRoute path="/blog/list/" component={Blog} />
+          <PrivateRoute path="/tag/list/:tag/" component={Tags} />
+          <PrivateRoute path="/blog/list/user/:pk/" component={Tags} />
+          <PrivateRoute path="/blog/detail/:pk/:slug/" component={BlogDetail} />
+          <PrivateRoute path="/edit/profile/" component={EditProfile} />
 
           <WithoutTokenRoute path="/register/" component={SignUp} />
           <WithoutTokenRoute

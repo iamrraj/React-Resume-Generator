@@ -4,7 +4,7 @@ import "./SideNav.css";
 import Cookies from "universal-cookie";
 import { withRouter } from "react-router-dom";
 import { getUser } from "../../Service/Auth";
-import LogoutPopup from "../../Password/LogoutPop"
+import LogoutPopup from "../../Password/LogoutPop";
 const cookies = new Cookies();
 
 class SideBar extends React.Component {
@@ -19,7 +19,7 @@ class SideBar extends React.Component {
 
   // componentDidMount() {
   //   if (cookies.get("Token") === null || cookies.get("Token") === undefined) {
-     
+
   //     localStorage.clear();
   //     this.props.history.push("/");
   //     window.location.reload(1);
@@ -81,10 +81,10 @@ class SideBar extends React.Component {
     const { showNav, status } = this.state;
     let navCoverStyle = { width: showNav ? "100%" : "0" };
     let sideNavStyle = { width: showNav ? "270px" : "0" };
-console.log(status)
+    console.log(status);
     return (
       <React.Fragment>
-         <LogoutPopup />
+        <LogoutPopup />
         <span
           onClick={this.openNavClick}
           class="open-nav text-white"
@@ -99,8 +99,6 @@ console.log(status)
         />
 
         <div name="side-nav" class="side-nav" style={sideNavStyle}>
-
-         
           <a href="# " onClick={this.closeNavClick} class="close-nav">
             &times;
           </a>
@@ -121,6 +119,7 @@ console.log(status)
             <strong>{window.localStorage.getItem("username")}</strong>
           </p>
           <hr></hr>
+          <a href="/user/view/resume/"></a>
           <a href="/user/view/resume/">
             <span>
               <i className="fa fa-desktop"></i>{" "}
@@ -134,17 +133,24 @@ console.log(status)
             &nbsp; &nbsp; Create Resume
           </a>
 
-          <a href={`/user/profile/${window.localStorage.getItem("Name")}`}>
+          <a href={`/user/${window.localStorage.getItem("username")}/`}>
             <span>
               <i className="fa fa-eye"></i>{" "}
             </span>{" "}
             &nbsp; &nbsp; View Profile
           </a>
-          <a href={`/edit/profile/${window.localStorage.getItem("Name")}`}>
+          <a href={`/edit/profile/${window.localStorage.getItem("username")}`}>
             <span>
               <i className="fa fa-pen"></i>{" "}
             </span>{" "}
             &nbsp; &nbsp; Edit Profile
+          </a>
+
+          <a href="/feed/">
+            <span>
+              <i className="fa fa-eye"></i>{" "}
+            </span>{" "}
+            &nbsp; &nbsp; Feed
           </a>
 
           <a href={`/change/password/`}>
@@ -170,7 +176,7 @@ console.log(status)
                 &nbsp; &nbsp; Email List
               </a>
 
-              <a href="/admin/bloglist/">
+              <a href="/blog/list/">
                 <span>
                   <i className="fa fa-pen"></i>{" "}
                 </span>{" "}

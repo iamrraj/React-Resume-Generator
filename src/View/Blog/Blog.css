@@ -1,0 +1,211 @@
+.body_tag {
+  margin-top: 40px;
+  padding: 44px;
+}
+.logo1 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.weloce {
+  font-weight: bold;
+  font-size: 22px;
+}
+strong {
+  font-weight: bold;
+}
+.weloce_title {
+  font-weight: 100;
+  font-size: 16.5px;
+  margin-top: -15px;
+  padding-left: 30px;
+  margin-bottom: -40px;
+}
+.img {
+  max-width: 100%;
+}
+a {
+  color: black;
+  text-decoration: none;
+}
+.header {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: -10px;
+}
+.title {
+  font-size: 30px;
+  margin-bottom: -10px;
+  margin-top: -10px;
+}
+.user_don {
+  font-size: 16px;
+  text-align: center;
+}
+.body_text {
+  font-size: 16px;
+  text-align: justify;
+}
+.btn_tag {
+  padding: 10px;
+  background-color: orange;
+  margin-right: 5px;
+  border-radius: 3px;
+  font-size: 13px;
+  font-weight: bold;
+}
+.done:hover {
+  color: black;
+}
+
+.fa-faceook {
+  padding: 15px;
+  height: 15px;
+  width: 15px;
+  color: white;
+  border-radius: 50%;
+  background: gray;
+}
+/* .fa-linkedin {
+  padding: 15px;
+  height: 15px;
+
+  color: white;
+  border-radius: 50%;
+  background: gray;
+} */
+.fa-twiter {
+  padding: 15px;
+  height: 15px;
+
+  color: white;
+  border-radius: 50%;
+  background: gray;
+}
+
+.row1 {
+  width: 100%;
+}
+.col1 {
+  width: 60%;
+}
+.col-sm-5 {
+  width: 30%;
+}
+#don {
+  max-width: 600px;
+}
+.down_text {
+  text-align: center;
+  font-size: 17px;
+  color: white;
+}
+.a {
+  color: black;
+  font-weight: bold;
+}
+.read_more {
+  font-size: 19px;
+}
+
+a:hover {
+  color: orange;
+}
+
+.footer_text {
+  margin-top: 50px;
+  background-color: #fe775a;
+  padding: 30px;
+}
+
+.container .myBtn {
+  width: 60px;
+  height: 40px;
+  background-color: #e52727;
+  color: white;
+  position: absolute;
+  right: 40px;
+  bottom: 20px;
+}
+.myBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+
+  color: white;
+  cursor: pointer;
+  width: 60px;
+  background: linear-gradient(-120deg, #4285f4, #34a853, #fbbc05, #ea4335);
+  height: 60px;
+  font-size: 40px;
+  line-height: -40px;
+  border-radius: 50%;
+}
+
+.myBtn:hover {
+  background-color: #555;
+}
+
+.fa-faceook {
+  text-decoration: none;
+  padding: 12px;
+  width: 50px;
+  background-color: gray;
+}
+
+.fa-twiter {
+  text-decoration: none;
+  background-color: gray;
+}
+
+#fact23 {
+  background: url("https://assets.vogue.com/photos/5bf4664e090f622d55116ce1/master/pass/00-promo-image-the-tulip-skyscraper-building-london.jpg")
+    center top no-repeat fixed;
+  background-size: cover;
+  color: white;
+  position: relative;
+  padding: 50px;
+  border-radius: 6px;
+}
+
+#fact23::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(5, 5, 5, 0.78);
+  z-index: 0;
+}
+
+#fact23 .container {
+  position: relative;
+  z-index: 100;
+}
+
+/* Blog details css */
+
+.main_section {
+  background-color: white;
+  padding: 30px;
+  margin-top: -30px;
+  border: 1px solid black;
+}
+.main_image {
+  border-radius: 50%;
+}
+
+.blog_detail {
+  margin-top: 40px;
+  background-color: white;
+  padding: 30px;
+}
+hr {
+  border: 1px dashed black;
+  opacity: 0.2;
+}

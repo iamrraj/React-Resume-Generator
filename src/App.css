@@ -6,8 +6,6 @@
 
 @import url("https://fonts.googleapis.com/css?family=Spartan&display=swap");
 
-
-
 /* About Page Css */
 .resume_container {
   padding-left: 30px;
@@ -26,7 +24,6 @@ form {
   margin: 0 auto;
   background-color: white;
 }
-
 
 .coll {
   width: 30%;
@@ -72,14 +69,13 @@ form {
   /* padding-left: 10px; */
   position: relative;
   top: -600px;
- 
 }
 
 .A4 {
   background: rgb(204, 204, 204);
   padding-left: 10px;
   padding-right: 10px;
-} 
+}
 
 /* @page {
   size: A4;
@@ -120,7 +116,7 @@ form {
 
   font-size: 15px;
   /* text-align: justify; */
-  /* line-height: 20px; */
+/* line-height: 20px; */
 /* }  */
 .basic_information {
   background-color: rgb(66, 66, 204, 0.05);
@@ -128,7 +124,7 @@ form {
   font-weight: 300;
   padding-top: 25px;
   padding-bottom: 10px;
-  
+
   /* padding-left: 40px;
   padding-right: 40px; */
   position: relative;
@@ -144,10 +140,10 @@ form {
   position: relative;
   top: -20px;
 }
-.hello_eductioen{
+.hello_eductioen {
   padding-left: 10px;
 }
-.dons{
+.dons {
   margin-top: 30px;
 }
 
@@ -159,7 +155,7 @@ form {
   margin-top: 15px;
 }
 
-.dod{
+.dod {
   margin-left: 0px;
 }
 .education {
@@ -288,9 +284,6 @@ form {
 
 /* For Index Bottom Page */
 
-
-
-
 .progress {
   margin-bottom: 10px;
   border-radius: 20px;
@@ -299,14 +292,243 @@ form {
 .progress-bar {
   width: 0;
   border-radius: 20px;
-  position:relative;
+  position: relative;
 }
-.progress-bar span[data-toggle="tooltip"]{
+.progress-bar span[data-toggle="tooltip"] {
   width: 16px;
   height: 16px;
   border-radius: 20px;
   background: red;
-  position:absolute;
-  right:0px;
-  top:0;
+  position: absolute;
+  right: 0px;
+  top: 0;
+}
+
+/* Crafted by Apratim Shukla */
+html {
+  height: 100%;
+}
+body {
+  background: rgba(250, 250, 250, 1);
+}
+.login_section {
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -45%);
+}
+.login {
+  background: #fff;
+  border: 1px solid rgb(236, 234, 234);
+  border-radius: 0px;
+  height: 410px;
+  margin: 30px auto 0;
+  width: 400px;
+}
+.login h1 {
+  box-sizing: border-box;
+  margin: 20px 0 30px 0;
+  text-align: center;
+  user-select: none;
+}
+input[type="password"],
+input[type="text"],
+input[type="email"] {
+  background: rgba(250, 250, 250, 1);
+  border: 1px solid rgb(236, 234, 234);
+  border-radius: 3px;
+  box-shadow: 0 1px #fff;
+  box-sizing: border-box;
+  color: black;
+  height: 39px;
+  margin: 10px 0 0 40px;
+  padding: 10px;
+  font-size: 13px;
+  width: 320px;
+}
+input[type="password"]::placeholder,
+input[type="text"]::placeholder,
+input[type="email"]::placeholder {
+  color: rgb(165, 164, 164);
+}
+input[type="password"]:focus,
+input[type="text"]:focus,
+input[type="email"]:focus {
+  outline: 0;
+  border: 1px solid #a1a1a1;
+}
+
+.forgot {
+  color: #7f7f7f;
+  display: inline-block;
+  box-sizing: border-box;
+  font: 12px/1 sans-serif;
+  left: -19px;
+  position: relative;
+  text-decoration: none;
+  top: -15px;
+  transition: color 0.4s;
+}
+.forgot:hover {
+  color: #3b3b3b;
+}
+
+input[type="submit"] {
+  background: #3897f0;
+  border: 0px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #f8f8f8;
+  font-weight: 600;
+  height: 29px;
+  margin: 14px 0 0 40px;
+  width: 320px;
+}
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+  background: rgb(48, 144, 233);
+  outline: 0;
+}
+
+.divider {
+  overflow: hidden;
+  text-align: center;
+  box-sizing: border-box;
+  color: rgb(165, 164, 164);
+  font-size: 13.5px;
+  font-weight: 500;
+  margin: 20px 0 0 40px;
+  width: 320px;
+}
+
+.divider:before,
+.divider:after {
+  background-color: rgb(224, 221, 221);
+  content: "";
+  display: inline-block;
+  height: 1.2px;
+  position: relative;
+  vertical-align: middle;
+  width: 50%;
+}
+
+.divider:before {
+  right: 2em;
+  margin-left: -50%;
+}
+
+.divider:after {
+  left: 2em;
+  margin-right: -50%;
+}
+
+.fbwrapper {
+  text-align: center;
+  margin-top: 25px;
+}
+
+/* .fb a {
+  font-weight: 600;
+  font-size: 14px;
+  display: inline;
+  vertical-align: middle;
+  margin: 20px 0 0 10px;
+  text-decoration: none;
+  color: rgb(107, 106, 106);
+} */
+.fb img {
+  vertical-align: middle;
+}
+
+.forgotwrapper {
+  text-align: center;
+  margin-top: 35px;
+}
+
+.forgot a {
+  margin: 20px 0 0 40px;
+  text-decoration: none;
+  color: rgb(107, 106, 106);
+}
+
+.infobox1 {
+  background: #fff;
+
+  height: 60px;
+  margin: 10px auto 0;
+  width: 400px;
+}
+.infobox1 p {
+  box-sizing: border-box;
+  margin: 22px 0 30px 0;
+  text-align: center;
+  user-select: none;
+  font-size: 14px;
+}
+
+.infobox {
+  background: #fff;
+  border: 1px solid rgb(236, 234, 234);
+  border-radius: 0px;
+  height: 60px;
+  margin: 10px auto 0;
+  width: 400px;
+}
+.infobox p {
+  box-sizing: border-box;
+  margin: 22px 0 30px 0;
+  text-align: center;
+  user-select: none;
+  font-size: 14px;
+}
+
+.infobox p a {
+  color: rgb(94, 163, 243);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.apps {
+  height: 100px;
+  margin: 20px auto 0;
+  width: 400px;
+}
+
+.apps p {
+  box-sizing: border-box;
+  margin: 10px 0 30px 0;
+  text-align: center;
+  user-select: none;
+  font-size: 14px;
+}
+
+.apps span a {
+  box-sizing: border-box;
+  margin-left: 28px;
+}
+
+.app span a img {
+  padding-left: 20px;
+}
+
+.footer {
+  position: relative;
+  left: 0;
+  bottom: 0;
+  margin-top: 50px;
+  width: 100%;
+  text-align: center;
+}
+
+.footer p a {
+  color: #003569;
+  text-decoration: none;
+  padding-left: 10px;
+  font-size: 13px;
+}
+
+.footer p span {
+  color: rgb(189, 186, 186);
+  padding-left: 80px;
+  font-size: 13px;
 }

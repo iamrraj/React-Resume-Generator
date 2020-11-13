@@ -1,0 +1,77 @@
+.pb-full {
+  padding-bottom: 100%;
+}
+
+/* hide search icon on search focus */
+.search-bar:focus + .fa-search {
+  display: none;
+}
+.header_photo {
+  margin-top: 10px;
+  border: 1px solid black;
+}
+
+.form_comment {
+  margin-top: -10px;
+  margin-bottom: 2px;
+  float: left;
+  /* display: flex; */
+  margin-left: 10px;
+}
+.form_comment:hover {
+  border: none;
+}
+.post {
+  color: #3897f0;
+}
+
+.input_from {
+  width: 300%;
+
+  /* border: 1px solid white; */
+}
+
+@media screen and (min-width: 768px) {
+  .post:hover .overlay {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 900px) and (max-width: 1024px) {
+  #edit_profiile {
+    margin-top: 150px;
+  }
+}
+@media screen and (min-width: 1030px) and (max-width: 1280px) {
+  #edit_profiile {
+    margin-top: 130px;
+  }
+}
+@media screen and (min-width: 1290px) and (max-width: 1380px) {
+  #edit_profiile {
+    margin-top: 130px;
+  }
+}
+@media screen and (min-width: 1390px) and (max-width: 1480px) {
+  #edit_profiile {
+    margin-top: 130px;
+  }
+}
+@media screen and (min-width: 1490px) and (max-width: 1580px) {
+  #edit_profiile {
+    margin-top: 130px;
+  }
+}
+@media screen and (min-width: 1590px) and (max-width: 1680px) {
+  #edit_profiile {
+    margin-top: 80px;
+  }
+}
+@media screen and (min-width: 1690px) and (max-width: 1780px) {
+  #edit_profiile {
+  }
+}
+@media screen and (min-width: 1790px) and (max-width: 1880px) {
+}
+@media screen and (min-width: 1890px) and (max-width: 2980px) {
+}

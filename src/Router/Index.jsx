@@ -1,10 +1,6 @@
-
-
-
 export { default as MainForm } from "../ResumeFile/MainForm";
 export { default as Home } from "../View/Home";
 export { default as Header } from "../Components/Layout/Header";
-
 
 export { default as ResumeList } from "../View/User/ResumeList";
 export { default as ViewResume } from "../View/User/ViewResume";
@@ -15,10 +11,12 @@ export { default as ForgetPassword } from "../Password/ForgetPassword";
 export { default as ResetPassword } from "../Password/ResetPassword";
 export { default as ChangePassword } from "../Password/ChangePassword";
 
-
-
-
-
+export { default as Profile } from "../View/Profile/Profile";
+export { default as Feed } from "../View/Feed/Feed";
+export { default as Blog } from "../View/Blog/Blog";
+export { default as Tags } from "../View/Blog/Tags";
+export { default as BlogDetail } from "../View/Blog/BlogDetail";
+export { default as EditProfile } from "../View/Profile/EditProfile";
 
 // import React, { Component } from "react";
 // import { Redirect } from "react-router";

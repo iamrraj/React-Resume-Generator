@@ -1,0 +1,98 @@
+.footer {
+  height: 60px;
+  line-height: 60px;
+}
+
+.aside-info {
+  position: fixed;
+}
+
+.login {
+  margin-top: 10vh;
+}
+
+.has-search .form-control {
+  padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 2.375rem;
+  text-align: center;
+  pointer-events: none;
+  color: #aaa;
+}
+
+#comment input {
+  border: none;
+  border-width: 0;
+  box-shadow: none;
+  outline: none;
+  width: 100%;
+}
+.not_available {
+  position: absolute;
+  font-size: 30px;
+  top: 100%;
+  left: 40%;
+}
+#ex1 {
+  max-width: 850px;
+  height: 400px;
+}
+#ex13 {
+  max-width: 500px;
+  height: 500px;
+  overflow-y: auto;
+}
+
+a.close-modal {
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 200px;
+  height: 200px;
+  visibility: hidden;
+  background: green;
+  border: 2px solid black;
+
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  -o-border-radius: 100px;
+  -ms-border-radius: 100px;
+}
+.post_add {
+  margin-top: 20px;
+}
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  width: 100%;
+}
+.upload-btn-wrapper input[type="file"] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+.btn112 {
+  border: 2px solid #b71c1c;
+  color: gray;
+  background-color: white;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 20px;
+  width: 100%;
+  font-weight: bold;
+}
+
+.full_name {
+  font-size: 14px;
+}

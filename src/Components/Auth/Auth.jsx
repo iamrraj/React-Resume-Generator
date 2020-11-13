@@ -62,7 +62,7 @@ function Auth() {
           timer: 3000,
         });
         setTimeout(function () {
-          window.location.href = "/home/";
+          window.location.href = "/feed/";
         }, 2000);
       })
       .catch((reject) => {
