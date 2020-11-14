@@ -6,7 +6,7 @@
 
 ### Features
 
-- Login/Registration (Send Email Confirmation after Registration_
+- Login/Registration (Send Email Confirmation after Registration\_
 - Change Password
 - Forget Password
 - Session Timeout (Auto Logout after 5 minutes inactive session)
@@ -38,6 +38,14 @@
 API Documentation is generated using the default tool provided by Django Rest Framework.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Sample Image
+
+#### Login Page
+
+[Imgur](https://imgur.com/SMLsSB7)
+
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/8ESo4wd"  ><a href="//imgur.com/a/8ESo4wd">Sample Image of APP</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
 ## Available Scripts
 
