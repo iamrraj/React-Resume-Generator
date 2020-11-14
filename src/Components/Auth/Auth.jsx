@@ -70,7 +70,7 @@ function Auth() {
         Swal.fire({
           title: "Login Error",
           icon: "error",
-          text: reject.response.data.error_description,
+          text: reject.response.data.message,
           timer: 2000,
         });
       });

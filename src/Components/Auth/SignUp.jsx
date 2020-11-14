@@ -4,7 +4,7 @@ import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import Swal from "sweetalert2";
 import axios from "axios";
 import config from "../../Config/config";
-
+import PasswordStrength from "../../Password/Passsword/PasswordStrength";
 
 function SignUp() {
   const [password, setPassword] = useState({
@@ -56,8 +56,7 @@ function SignUp() {
           Swal.fire({
             title: "Registerd",
             icon: "success",
-            text:
-              "Successfully Register Please check your email to confirm account !!",
+            text: `Successfully Register Please check your email "${password.email} "to confirm account !!`,
             showConfirmButton: false,
             timer: 3000,
           });
@@ -70,7 +69,9 @@ function SignUp() {
           Swal.fire({
             title: "Registerd",
             icon: "error",
-            text: err.response.data["message"],
+            text: err.response.data["message"]
+              ? err.response.data["message"]
+              : "Seems like this username is already in use",
             timer: 2000,
           });
         });
@@ -156,6 +157,8 @@ function SignUp() {
                             <VisibilityOff className="opp" />
                           )}
                         </span>
+
+                        <PasswordStrength password={password.password} />
                       </div>
 
                       <div class="form-group">
@@ -164,7 +167,6 @@ function SignUp() {
                           name="confirmPassword"
                           className="form-control password"
                           placeholder="Confirm Password"
-                          
                           value={password.confirmPassword}
                           onChange={handleChange}
                         />
@@ -196,8 +198,8 @@ function SignUp() {
                         type="submit"
                         value="Login"
                         disabled={
-                            password.password !== password.confirmPassword
-                          }
+                          password.password !== password.confirmPassword
+                        }
                         className="btn btn-login btn-block "
                       >
                         REGISTER

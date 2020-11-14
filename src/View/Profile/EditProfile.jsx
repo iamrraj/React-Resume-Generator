@@ -20,6 +20,7 @@ function EditProfile() {
 
   useEffect(() => {
     handleUser();
+    // handleChange();
   }, []);
 
   const handleSubmit = (event) => {
@@ -41,9 +42,13 @@ function EditProfile() {
     });
   };
 
+  //   const inputChange = useCallback((event) => {
+  //     textSetState(event.target.value);
+  // },[])
+
   const handleChange = async (e) => {
     if (e.target.files.length) {
-      setImage({
+      await setImage({
         profile_pic: e.target.files[0],
         preview: URL.createObjectURL(e.target.files[0]),
       });

@@ -5,7 +5,7 @@ let authToken = localStorage.getItem("Token");
 const config = {
   apiUrl: {
     me: `${api}me/`,
-    login: `${api}oauth/token/`,
+    login: `${api}oauth/token/dashboard/`, // oauth/token/`,
     profile: `${api}user/`,
     user: `${api}user/`,
 
