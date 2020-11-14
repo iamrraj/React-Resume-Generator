@@ -10,6 +10,11 @@
 - Change Password
 - Forget Password
 - Session Timeout (Auto Logout after 5 minutes inactive session)
+- Write Blog
+- Filter blog by(Author or By Tag) and (Like on Post, Comment on post, See user Who liked your post, Follow Or unfollow user)
+- Post (Like on Post, Comment on post, See user Who liked your post, Follow Or unfollow user)
+- Update Used deatils
+- User profile view.
 - Minimal Design
 - Create/Edit/Delete Your Resume
 - User Profile
@@ -43,9 +48,43 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 #### Login Page
 
-[Imgur](https://imgur.com/SMLsSB7)
+[![image](https://www.linkpicture.com/q/Screen-Shot-2020-11-14-at-10.02.12-AM.png)](https://www.linkpicture.com/view.php?img=LPic5fafa1042a69d353861954)
 
-<blockquote class="imgur-embed-pub" lang="en" data-id="a/8ESo4wd"  ><a href="//imgur.com/a/8ESo4wd">Sample Image of APP</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+#### Register(Send confirmation email after registration)
+
+[![image](https://www.linkpicture.com/q/Screen-Shot-2020-11-14-at-10.02.20-AM.png)](https://www.linkpicture.com/view.php?img=LPic5fafa1042a69d353861954)
+
+[![image](https://www.linkpicture.com/q/Screen-Shot-2020-11-14-at-10.02.27-AM.png)](https://www.linkpicture.com/view.php?img=LPic5fafa27ac0280339750413)
+
+[![image](https://www.linkpicture.com/q/Screen-Shot-2020-11-14-at-10.01.40-AM.png)](https://www.linkpicture.com/view.php?img=LPic5fafa1042a69d353861954)
+
+[![image](https://www.linkpicture.com/q/Screen-Shot-2020-11-14-at-10.24.15-AM.png)](https://www.linkpicture.com/view.php?img=LPic5fafa245da2351370223357)
+
+[![image](https://www.linkpicture.com/q/Screen-Shot-2020-11-14-at-9.55.20-AM.png)](https://www.linkpicture.com/view.php?img=LPic5fafa1042a69d353861954)
+
+[![image](https://www.linkpicture.com/q/Screen-Shot-2020-11-14-at-9.55.46-AM.png)](https://www.linkpicture.com/view.php?img=LPic5fafa1042a69d353861954)
+
+[![image](https://www.linkpicture.com/q/Screen-Shot-2020-11-14-at-9.55.58-AM.png)](https://www.linkpicture.com/view.php?img=LPic5fafa1042a69d353861954)
+
+[![image](https://www.linkpicture.com/q/Screen-Shot-2020-11-14-at-9.56.34-AM.png)](https://www.linkpicture.com/view.php?img=LPic5fafa1042a69d353861954)
+
+[![image](https://www.linkpicture.com/q/Screen-Shot-2020-11-14-at-9.57.06-AM.png)](https://www.linkpicture.com/view.php?img=LPic5fafa1042a69d353861954)
+
+[![image](https://www.linkpicture.com/q/Screen-Shot-2020-11-14-at-9.59.46-AM.png)](https://www.linkpicture.com/view.php?img=LPic5fafa1042a69d353861954)
+
+[![image](https://www.linkpicture.com/q/Screen-Shot-2020-11-14-at-9.59.52-AM.png)](https://www.linkpicture.com/view.php?img=LPic5fafa1042a69d353861954)
+
+[![image](https://www.linkpicture.com/q/Screen-Shot-2020-11-14-at-9.59.57-AM.png)](https://www.linkpicture.com/view.php?img=LPic5fafa1042a69d353861954)
+
+[![image](https://www.linkpicture.com/q/Screen-Shot-2020-11-14-at-10.00.01-AM.png)](https://www.linkpicture.com/view.php?img=LPic5fafa1042a69d353861954)
+
+[![image](https://www.linkpicture.com/q/Screen-Shot-2020-11-14-at-10.00.22-AM.png)](https://www.linkpicture.com/view.php?img=LPic5fafa1042a69d353861954)
+
+[![image](https://www.linkpicture.com/q/Screen-Shot-2020-11-14-at-10.00.40-AM.png)](https://www.linkpicture.com/view.php?img=LPic5fafa1042a69d353861954)
+
+[![image](https://www.linkpicture.com/q/Screen-Shot-2020-11-14-at-10.00.46-AM.png)](https://www.linkpicture.com/view.php?img=LPic5fafa1042a69d353861954)
+
+[![image](https://www.linkpicture.com/q/Screen-Shot-2020-11-14-at-10.01.57-AM.png)](https://www.linkpicture.com/view.php?img=LPic5fafa1042a69d353861954)
 
 ## Available Scripts
 
