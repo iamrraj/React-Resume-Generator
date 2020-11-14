@@ -12,7 +12,6 @@ import {
 import "./Feed.css";
 import AddFeed from "./AddFeed";
 import Likers from "./Likers";
-import { getUserDetail } from "../../Service/User";
 
 function Feed() {
   const [feed, setFeed] = useState([]);

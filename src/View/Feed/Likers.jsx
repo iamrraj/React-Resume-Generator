@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { getUserDetail } from "../../Service/User";
+import React from "react";
+
 import { followUser } from "../../Service/User";
 function Likers(props) {
   //   useEffect(() => {
@@ -13,7 +12,7 @@ function Likers(props) {
   };
   return (
     <div id="ex13" class="modal">
-      <a href="#" rel="modal:close" className="float-right">
+      <a href="# " rel="modal:close" className="float-right">
         <i className="fa fa-times fa-2x"></i>
       </a>
       <div>
@@ -24,7 +23,7 @@ function Likers(props) {
             {props.data.map((C, i) => (
               <div className="row" key={i + 1}>
                 <div className="col-sm-9">
-                  <a href={`/user/${C.id}`}>
+                  <a href={`/user/${C.username}/`}>
                     <div className="card-header d-flex  align-items-center bg-white">
                       <img
                         className="img-fluid border rounded-circle"
@@ -38,28 +37,26 @@ function Likers(props) {
                       />
 
                       <div className="ml-3">
-                        <Link to={""} className="text-decoration-none">
-                          <h5 className="font-weight-bold text-dark full_name m-0">
-                            {C.fullname}{" "}
-                            <span style={{ position: "relative", top: "10px" }}>
-                              {C.is_verify == true && (
-                                <span
-                                  className="inline-block fas fa-certificate fa-lg text-blue-500 
+                        <h5 className="font-weight-bold text-dark full_name m-0">
+                          {C.fullname}{" "}
+                          <span style={{ position: "relative", top: "10px" }}>
+                            {C.is_verify === true && (
+                              <span
+                                className="inline-block fas fa-certificate fa-lg text-blue-500 
                                relative mr-6 text-xl transform -translate-y-2"
-                                  aria-hidden="true"
-                                >
-                                  <i
-                                    className="fas fa-check text-white text-xs absolute inset-x-0
+                                aria-hidden="true"
+                              >
+                                <i
+                                  className="fas fa-check text-white text-xs absolute inset-x-0
                                ml-1 mt-px"
-                                  ></i>
-                                </span>
-                              )}
-                            </span>
-                          </h5>
-                          <h5 className="font-weight-bold full_name  text-secondary m-0">
-                            {C.username}{" "}
-                          </h5>
-                        </Link>
+                                ></i>
+                              </span>
+                            )}
+                          </span>
+                        </h5>
+                        <h5 className="font-weight-bold full_name  text-secondary m-0">
+                          {C.username}{" "}
+                        </h5>
                       </div>
                     </div>
                   </a>
@@ -67,7 +64,7 @@ function Likers(props) {
 
                 <div className="col-sm-3">
                   {localStorage.getItem("username") === C.username ? (
-                    <a href="/edit/profile/" className=""></a>
+                    <a href="/edit/profile/">.</a>
                   ) : (
                     <span>
                       {C.followed_by_req_user === false ? (

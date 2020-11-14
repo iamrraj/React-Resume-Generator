@@ -7,20 +7,20 @@ class About extends Component {
     this.autocomplete = null;
     this.handlePlaceChanged = this.handlePlaceChanged.bind(this);
   }
-  saveAndContinue = e => {
+  saveAndContinue = (e) => {
     e.preventDefault();
     this.props.nextStep();
   };
 
-  componentDidMount() {
-    const google = (window.google = window.google ? window.google : {});
-    this.autocomplete = new google.maps.places.Autocomplete(
-      this.autocompleteInput.current,
-      { types: ["geocode"] }
-    );
+  // componentDidMount() {
+  //   const google = (window.google = window.google ? window.google : {});
+  //   this.autocomplete = new google.maps.places.Autocomplete(
+  //     this.autocompleteInput.current,
+  //     { types: ["geocode"] }
+  //   );
 
-    this.autocomplete.addListener("place_changed", this.handlePlaceChanged);
-  }
+  //   this.autocomplete.addListener("place_changed", this.handlePlaceChanged);
+  // }
 
   handlePlaceChanged() {
     const place = this.autocomplete.getPlace();
@@ -30,7 +30,7 @@ class About extends Component {
   render() {
     const { values } = this.props;
     return (
-      <span >
+      <span>
         {localStorage.getItem("Total") > 2 &&
         localStorage.getItem("Status") === true ? (
           <section
@@ -71,7 +71,7 @@ class About extends Component {
                       style={{
                         borderRadius: "50%",
                         height: "100px",
-                        width: "100px"
+                        width: "100px",
                       }}
                     />
                     <input
@@ -79,7 +79,6 @@ class About extends Component {
                       onChange={this.props.image}
                       name="photo"
                       className="file-1"
-                      
                     />
                   </div>
                 </div>

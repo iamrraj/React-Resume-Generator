@@ -13,6 +13,7 @@ const config = {
     post: `${api}post/`,
 
     feed: `${api}post/feed/`,
+    avatar: `${api}user/edit/user/avatar/`,
     edit: `${api}user/edit/me/`,
     like: `${api}post/like/`,
     updateProfile: `${api}user/edit/me/`,

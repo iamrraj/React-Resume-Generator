@@ -75,3 +75,39 @@
 }
 @media screen and (min-width: 1890px) and (max-width: 2980px) {
 }
+
+.Specila_Button {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  width: 51%;
+  top: -40px;
+  left: 35px;
+}
+
+.Specila_Button input[type="file"] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.fa-pen {
+  color: black;
+}
+
+.btn113 {
+  /* border: 2px solid #b71c1c; */
+  color: gray;
+  background-color: white;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 20px;
+  width: 50%;
+  cursor: pointer;
+  font-size: 14px;
+  transform: rotate(-100deg);
+  border-radius: 50%;
+  font-weight: bold;
+}

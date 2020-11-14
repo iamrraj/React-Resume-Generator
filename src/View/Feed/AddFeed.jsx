@@ -74,7 +74,7 @@ function AddFeed() {
 
   return (
     <div id="ex1" class="modal">
-      <a href="#" rel="modal:close" className="float-right">
+      <a href="# " rel="modal:close" className="float-right">
         <i className="fa fa-times fa-2x"></i>
       </a>
       <div className="post_add">
@@ -95,7 +95,7 @@ function AddFeed() {
           <div className="col-md-7">
             <form onSubmit={handleUpload}>
               <div className="form-group">
-                <div class="upload-btn-wrapper Specila_Button">
+                <div class="upload-btn-wrapper ">
                   <button class="btn112" style={{ fontSize: "14px" }}>
                     <i className="fa fa-upload"></i> Upload Post Image
                   </button>

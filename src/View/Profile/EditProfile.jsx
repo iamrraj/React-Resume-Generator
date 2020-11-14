@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getUser, EditUser } from "../../Service/User";
+import config from "../../Config/config";
 function EditProfile() {
   const [name, setName] = useState([]);
+  const [image, setImage] = useState({
+    profile_pic: null,
+    preview: "",
+  });
   const [product, setProduct] = useState({
     email: "",
     username: "",
@@ -19,14 +24,35 @@ function EditProfile() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // let formData = new FormData();
 
     EditUser(product).then((data) => {});
   };
 
+  const handleUpload = async (e) => {
+    let authToken = localStorage.getItem("Token");
+    const formData = new FormData();
+    formData.append("profile_pic", image.profile_pic);
+    await fetch(config.apiUrl.avatar, {
+      method: "PUT",
+      headers: {
+        Authorization: "Bearer " + authToken,
+      },
+      body: formData,
+    });
+  };
+
+  const handleChange = async (e) => {
+    if (e.target.files.length) {
+      setImage({
+        profile_pic: e.target.files[0],
+        preview: URL.createObjectURL(e.target.files[0]),
+      });
+      handleUpload();
+      console.log(image);
+    }
+  };
   const handleUser = () => {
     getUser().then((data) => {
-      // console.log(data);
       setName(data);
       setProduct({
         ...product,
@@ -59,7 +85,11 @@ function EditProfile() {
               <div className="row">
                 <div className="col-lg-6 d-none d-lg-block bg-password-image">
                   <img
-                    src="https://img.favpng.com/8/24/15/interview-icon-profiles-icon-portfolio-icon-png-favpng-YqqDgDpiDEmRwbpqGDqLcDrp0.jpg"
+                    src={
+                      image.profile_pic == null
+                        ? "https://img.favpng.com/8/24/15/interview-icon-profiles-icon-portfolio-icon-png-favpng-YqqDgDpiDEmRwbpqGDqLcDrp0.jpg"
+                        : image.preview
+                    }
                     alt="Forget Password"
                     style={{ width: "100%", height: "100%" }}
                   />
@@ -71,7 +101,7 @@ function EditProfile() {
                         EDIT PROFILE
                       </h1>
                       <div className="card-header d-flex  align-items-center bg-white">
-                        <Link to="" className="my-1 ml-2">
+                        <span className="my-1 ml-2">
                           <img
                             className="img-fluid border rounded-circle"
                             style={{ width: "80px", height: "80px" }}
@@ -82,8 +112,20 @@ function EditProfile() {
                             }
                             alt=""
                           />
-                        </Link>
-                        <div className="ml-3">
+                          <div class="Specila_Button">
+                            <button class="btn113" style={{ fontSize: "14px" }}>
+                              <i className="fa fa-pen"></i>
+                            </button>
+                            <input
+                              type="file"
+                              accept="image/*"
+                              className="form-control"
+                              name="profile_pic"
+                              onChange={handleChange}
+                            />
+                          </div>
+                        </span>
+                        <div className="ml-3" style={{ marginTop: "-40px" }}>
                           <Link
                             to={""} //{`/profile/${photo.author.username}`}
                             className="text-decoration-none"
@@ -102,6 +144,7 @@ function EditProfile() {
                       className="user "
                       onSubmit={handleSubmit}
                       autoComplete="off"
+                      style={{ marginTop: "-40px" }}
                     >
                       <div class="form-group">
                         <input
